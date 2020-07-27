@@ -1,0 +1,66 @@
+# rules
+yabai -m rule --add app="^Finder$" manage="off"
+yabai -m rule --add app="^Activity Monitor$" manage="off"
+yabai -m rule --add app="^App Store$" manage="off"
+yabai -m rule --add app="^AppZapper$" manage="off"
+yabai -m rule --add app="^Books$" manage="off"
+yabai -m rule --add app="^Calculator$" manage="off"
+yabai -m rule --add app="^Calendar$" manage="off"
+yabai -m rule --add app="^Chess$" manage="off"
+yabai -m rule --add app="^CleanMyMac X$" manage="off"
+yabai -m rule --add app="^Contacts$" manage="off"
+yabai -m rule --add app="^Dictionary$" manage="off"
+yabai -m rule --add app="^Discord$" manage="off"
+yabai -m rule --add app="^Docker Desktop$" manage="off"
+yabai -m rule --add app="^Epic Games Launcher$" manage="off"
+yabai -m rule --add app="^Epubor Ultimate$" manage="off"
+yabai -m rule --add app="^Font Book$" manage="off"
+yabai -m rule --add app="^Folx$" manage="off"
+yabai -m rule --add app="^GoPro Quick$" manage="off"
+yabai -m rule --add app="^Home$" manage="off"
+yabai -m rule --add app="^Image Capture$" manage="off"
+yabai -m rule --add app="^Installer$" manage="off"
+yabai -m rule --add app="^Kite$" manage="off"
+yabai -m rule --add app="^Logi Options$" manage="off"
+yabai -m rule --add app="^Maps$" manage="off"
+yabai -m rule --add app="^Mail$" manage="off"
+yabai -m rule --add app="^Messages$" manage="off"
+yabai -m rule --add app="^Music$" manage="off"
+yabai -m rule --add app="^Musixmatch$" manage="off"
+yabai -m rule --add app="^Notes$" manage="off"
+yabai -m rule --add app="^Notion$" manage="off"
+yabai -m rule --add app="^Parallels Desktop$" manage="off"
+yabai -m rule --add app="^Photo Boot$" manage="off"
+yabai -m rule --add app="^Podcasts$" manage="off"
+yabai -m rule --add app="^PopcornTime$" manage="off"
+yabai -m rule --add app="^Postman$" manage="off"
+yabai -m rule --add app="^Photo Booth$" manage="off"
+yabai -m rule --add app="^QuickTime Player$" manage="off"
+yabai -m rule --add app="^Reminders$" manage="off"
+yabai -m rule --add app="^Spotify$" manage="off"
+yabai -m rule --add app="^Steam$" manage="off"
+yabai -m rule --add app="^Stocks$" manage="off"
+yabai -m rule --add app="^System Information$" manage="off"
+yabai -m rule --add app="^System Preferences$" manage="off"
+yabai -m rule --add app="^TV$" manage="off"
+yabai -m rule --add app="^VirtualBox$" manage="off"
+yabai -m rule --add app="^WhatsApp$" manage="off"
+yabai -m rule --add app="*" manage="off"
+
+# yabai layout settings
+yabai -m config layout bsp
+
+#yabai -m config --space 2 layout bsp
+#yabai -m config --space 3 layout bsp
+
+#yabai windows settings
+#yabai -m window --toggle border
+yabai -m config top_padding 10
+yabai -m config bottom_padding 10
+yabai -m config left_padding 10
+yabai -m config right_padding 10
+yabai -m config window_gap 10
+
+yabai -m config window_topmost on
+yabai -m config normal_window_opacity 1
+

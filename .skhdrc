@@ -1,0 +1,59 @@
+# Laptop shortcuts
+f8: yabai -m config layout float
+f9: yabai -m config layout bsp
+
+# Yamai shortcuts
+# MOD1 = alt + shift
+# MOD2 * alt + shift + ctrl
+#
+
+#mod = 'mod1' | alt + shift
+
+####################
+# Windows
+####################
+
+#Focus
+alt + shift - l : yabai -m window --focus east
+alt + shift - h : yabai -m window --focus west
+alt + shift - k : yabai -m window --focus north
+alt + shift - j : yabai -m window --focus south
+
+# Swap
+alt + shift + ctrl - l : yabai -m window --swap east
+alt + shift + ctrl - h : yabai -m window --swap west
+alt + shift + ctrl - k : yabai -m window --swap north
+alt + shift + ctrl - j : yabai -m window --swap south
+
+# Move (warp)
+alt + shift + ctrl - right : yabai -m window --warp east
+alt + shift + ctrl - left : yabai -m window --warp west
+alt + shift + ctrl - up : yabai -m window --warp north
+alt + shift + ctrl - down : yabai -m window --warp south
+
+# Resize focused window (building)
+# You have to be in a left window to resize in x axis
+# and in the bottom window to resize in y axis
+#alt + shift - p : yabai -m window --resize right:25:0 ; yabai -m window --resize left:25:0
+#alt + shift - u : yabai -m window --resize right:-25:0 ; yabai -m window --resize left:-25:0
+#alt + shift - o :  yabai -m window --resize top:0:-25 ; yabai -m window --resize bottom:0:-25
+#alt + shift - i : yabai -m window --resize top:0:25 ; yabai -m window --resize bottom:0:25
+alt + shift - p : yabai -m window east --resize left:25:0 2> /dev/null || yabai -m window --resize left:25:0
+alt + shift - u : yabai -m window west --resize right:-25:0 2> /dev/null || yabai -m window --resize right:-25:0
+alt + shift - o : yabai -m window south --resize top:0:-25 2> /dev/null || yabai -m window --resize top:0:-25
+alt + shift - i : yabai -m window north --resize bottom:0:25 2> /dev/null || yabai -m window --resize bottom:0:25
+
+# Display
+alt + shift - return : yabai -m display --focus recent
+
+# Move window to display
+cmd + ctrl - h : yabai -m window --display recent
+cmd + ctrl - l : yabai -m window --display recent
+
+# Move window to space
+alt + shift + ctrl - 1 : yabai -m window --space 1
+alt + shift + ctrl - 2 : yabai -m window --space 2
+alt + shift + ctrl - 3 : yabai -m window --space 3
+alt + shift + ctrl - 4 : yabai -m window --space 4
+alt + shift + ctrl - 5 : yabai -m window --space 5
+
