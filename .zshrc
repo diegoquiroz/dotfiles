@@ -128,6 +128,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 neofetch
 alias sp=spotify
 alias doom=~/.emacs.d/bin/doom
+alias preview="qlmanage -p"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
 
