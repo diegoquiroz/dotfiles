@@ -11,15 +11,19 @@ syntax on
 set encoding=utf-8
 set cursorline
 set cursorcolumn
+set colorcolumn=80
 set ruler
 
 set fileformat=unix
+
+set hidden
 
 "" Use tabs
 set noexpandtab
 set smarttab
 
 "" Use spaces instead of tabs
+"set expandtab
 
 "" Tab size 1 tab = 4 spaces
 set tabstop=4
@@ -34,7 +38,7 @@ set autoindent
 set formatoptions=cq
 
 "set number
-set relativenumber
+set number relativenumber
 set mouse=a
 set laststatus=2
 set clipboard=unnamed
@@ -43,6 +47,8 @@ let mapleader=" "
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>bk :bd<CR>
+nmap <Leader>bp :bprev<CR>
+nmap <Leader>bn :bnext<CR>
 
 
 highlight link htmlTag htmlTagName

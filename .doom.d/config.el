@@ -32,11 +32,11 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -77,31 +77,5 @@
    ;(doom-modeline-mode . nyan-mode)
    )
 
-
-;;(use-package doom-themes
-;;  :custom
-;;  (doom-themes-enable-italic t)
-;;  (doom-themes-enable-bold t)
-;;  :custom-face
-;;  ;; (vertical-bar   (doom-darken base5 0.4))
-;;  ;; (doom-darken bg 0.4)
-;;  :config
-;;  (load-theme 'doom-dracula t)
-;;  (doom-themes-neotree-config)
-;;  (doom-themes-org-config)
-;;  ;; Modeline
-;;  (use-package doom-modeline
-;;    :custom
-;;    (doom-modeline-buffer-file-name-style 'truncate-with-project)
-;;    (doom-modeline-icon t)
-;;    (doom-modeline-major-mode-icon nil)
-;;    (doom-modeline-minor-modes nil)
-;;    :hook
-;;    (after-init . doom-modeline-mode)
-;;    :config
-;;    (set-cursor-color "cyan")
-;;    (line-number-mode 0)
-;;    (column-number-mode 0)
-;;    (doom-modeline-def-modeline 'main
-;;      '(bar workspace-number window-number evil-state god-state ryo-modal xah-fly-keys matches buffer-info remote-host buffer-position parrot selection-info)
-;;      '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker))))
+;(require 'org-bullets)
+;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))

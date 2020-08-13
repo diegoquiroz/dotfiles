@@ -45,6 +45,7 @@ yabai -m rule --add app="^System Preferences$" manage="off"
 yabai -m rule --add app="^TV$" manage="off"
 yabai -m rule --add app="^VirtualBox$" manage="off"
 yabai -m rule --add app="^WhatsApp$" manage="off"
+yabai -m rule --add app="^Xcode$" manage="off"
 yabai -m rule --add app="*" manage="off"
 
 # yabai layout settings

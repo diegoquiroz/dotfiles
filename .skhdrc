@@ -2,6 +2,8 @@
 f8: yabai -m config layout float
 f9: yabai -m config layout bsp
 
+f6: spotify pause 2> /dev/null || spotify play
+
 # Yamai shortcuts
 # MOD1 = alt + shift
 # MOD2 * alt + shift + ctrl
@@ -44,7 +46,7 @@ alt + shift - o : yabai -m window south --resize top:0:-25 2> /dev/null || yabai
 alt + shift - i : yabai -m window north --resize bottom:0:25 2> /dev/null || yabai -m window --resize bottom:0:25
 
 # Display
-alt + shift - return : yabai -m display --focus recent
+cmd + ctrl - return : yabai -m display --focus recent
 
 # Move window to display
 cmd + ctrl - h : yabai -m window --display recent

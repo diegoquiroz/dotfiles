@@ -1,11 +1,21 @@
+" Colorsheme
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+	colorscheme onehalfdark
+	let g:airline_theme='onehalfdark'
+else
+	colorscheme onehalflight
+	let g:airline_theme='onehalflight'
+endif
+
+" Airline
+"let g:airline_theme='wombat'
+let g:airline_powerline_fonts = 1
+
 
 " pear-tree
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
 let g:pear_tree_smart_backspace = 1
-
-" Colorsheme
-colorscheme onehalfdark
 
 " Indent lines (spaces)
 "let g:indentLine_color_term = 239
@@ -24,10 +34,6 @@ endfunction
 command! ProjectFiles execute 'Files' s:find_git_root()
 nmap <Leader><Leader> :ProjectFiles<CR>
 nmap <Leader>bb :Buffers<CR>
-
-" Airline
-let g:airline_theme='wombat'
-let g:airline_powerline_fonts = 1
 
 "
 " HTML plugins
@@ -76,34 +82,38 @@ augroup nerdtree_open
 	autocmd BufEnter * lcd %:p:h
 augroup END
 let g:NERDTreeWinSize = 25
-autocmd BufWinEnter * NERDTreeMirror
+"autocmd BufWinEnter * NERDTreeMirror
 "autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 
 nmap <Leader>op :NERDTreeFind<CR>
 
 
 " Minimap
-let g:minimap_highlight='Visual'
-let g:python_highlight_all = 1
+"let g:minimap_highlight='Visual'
+"let g:python_highlight_all = 1
+"let g:minimap_toggle='<leader>tm'
 
 " Deoplete config
 "
 "call deoplete#custom#option('auto_complete', v:false)
 let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
+
+" Deoplete JEDI (python)
+"let g:python_host_prog = '/Users/diego/Developer/venvs/neovim2/bin/python'
+"let g:python3_host_prog = '/Users/diego/Developer/venvs/neovim/bin/python'
+"let g:python_host_prog = '/usr/bin/python'
+"let g:python3_host_prog = '/usr/local/bin/python3'
+let g:deoplete#sources#jedi#enable_typeinfo=0
+
+" Deoplete C, C++, ObjC
+let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header='/Library/Developer/CommandLineTools/usr/lib/clang'
+let g:deoplete#sources#clang#sort_algo='priority'
+
+
 
 " CONFIGS of TERN JS
-" Whether to include the types of the completions in the result data. Default: 0
-let g:deoplete#sources#ternjs#types = 1
-
-" Whether to include the distance (in scopes for variables, in prototypes for 
-" properties) between the completions and the origin position in the result 
-" data. Default: 0
-let g:deoplete#sources#ternjs#depths = 1
-
-" Whether to include documentation strings (if found) in the result data.
-" Default: 0
-let g:deoplete#sources#ternjs#docs = 1
-
 " When on, only completions that match the current word at the given point will
 " be returned. Turn this off to get all results, so that you can filter on the 
 " client side. Default: 1
@@ -121,11 +131,6 @@ let g:deoplete#sources#ternjs#guess = 0
 " Determines whether the result set will be sorted. Default: 1
 let g:deoplete#sources#ternjs#sort = 0
 
-" When disabled, only the text before the given position is considered part of 
-" the word. When enabled (the default), the whole variable name that the cursor
-" is on will be included. Default: 1
-let g:deoplete#sources#ternjs#expand_word_forward = 0
-
 " Whether to ignore the properties of Object.prototype unless they have been 
 " spelled out by at least two characters. Default: 1
 let g:deoplete#sources#ternjs#omit_object_prototype = 0
@@ -137,6 +142,9 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 " If completions should be returned when inside a literal. Default: 1
 let g:deoplete#sources#ternjs#in_literal = 0
 
+" close the preview window when you're not using it
+let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "Add extra filetypes
 let g:deoplete#sources#ternjs#filetypes = [ 'jsx' ]
@@ -144,3 +152,4 @@ let g:deoplete#sources#ternjs#filetypes = [ 'jsx' ]
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
+

@@ -51,3 +51,7 @@
 
 (package! nyan-mode
 	:recipe (:host github :repo "TeMPOraL/nyan-mode"))
+
+
+(package! org-bullets
+	:recipe (:host github :repo "sabof/org-bullets"))
