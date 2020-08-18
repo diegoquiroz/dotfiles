@@ -127,6 +127,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # My stuff
 neofetch|lolcat -t --force
 
+alias web=~/Developer/shell/web
 alias sp=spotify
 alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
@@ -134,6 +135,11 @@ alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH="$PATH:/usr/local/anaconda3/bin"
 
 # Dotfiles git alias
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
