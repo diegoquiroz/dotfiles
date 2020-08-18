@@ -19,11 +19,11 @@ set fileformat=unix
 set hidden
 
 "" Use tabs
-set noexpandtab
-set smarttab
+"set noexpandtab
+"set smarttab
 
 "" Use spaces instead of tabs
-"set expandtab
+set expandtab
 
 "" Tab size 1 tab = 4 spaces
 set tabstop=4

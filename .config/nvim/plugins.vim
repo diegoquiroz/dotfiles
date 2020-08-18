@@ -102,8 +102,8 @@ set completeopt-=preview
 " Deoplete JEDI (python)
 "let g:python_host_prog = '/Users/diego/Developer/venvs/neovim2/bin/python'
 "let g:python3_host_prog = '/Users/diego/Developer/venvs/neovim/bin/python'
-"let g:python_host_prog = '/usr/bin/python'
-"let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:deoplete#sources#jedi#enable_typeinfo=0
 
 " Deoplete C, C++, ObjC
@@ -111,7 +111,10 @@ let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/
 let g:deoplete#sources#clang#clang_header='/Library/Developer/CommandLineTools/usr/lib/clang'
 let g:deoplete#sources#clang#sort_algo='priority'
 
-
+" Deoplete JAVA
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
 " CONFIGS of TERN JS
 " When on, only completions that match the current word at the given point will

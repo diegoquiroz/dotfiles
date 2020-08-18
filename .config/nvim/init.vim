@@ -50,20 +50,24 @@ if dein#load_state('/Users/diego/.vim/bundles')
   "call dein#add('severin-lemaignan/vim-minimap')
 
   " Autocomplete plugin
-  call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+  "call dein#add('Shougo/deoplete.nvim')
+  "if !has('nvim')
+  "  call dein#add('roxma/nvim-yarp')
+  "  call dein#add('roxma/vim-hug-neovim-rpc')
+  "endif
   call dein#add('ervandew/supertab')
 
-  " C, C++, Obj madness
-  call dein#add('deoplete-plugins/deoplete-clang')
-  call dein#add('Shougo/neoinclude.vim')
+  " C, C++ and Obj madness
+  "call dein#add('deoplete-plugins/deoplete-clang')
+  "call dein#add('Shougo/neoinclude.vim')
 
+  " Java
+  "call dein#add('artur-shaik/vim-javacomplete2')
 
+  " Python
   " Python autocomplete
-  call dein#add('deoplete-plugins/deoplete-jedi')
+  "call dein#add('deoplete-plugins/deoplete-jedi')
 
   " HTML plugins
   call dein#add('mattn/emmet-vim')
@@ -71,7 +75,7 @@ if dein#load_state('/Users/diego/.vim/bundles')
   " Javascript plugins
   call dein#add('neomake/neomake')
   call dein#add('ternjs/tern_for_vim', { 'do': 'npm install' })
-  call dein#add('carlitux/deoplete-ternjs')
+  "call dein#add('carlitux/deoplete-ternjs')
   call dein#add('pangloss/vim-javascript')
 
   " Pair characters plugin
