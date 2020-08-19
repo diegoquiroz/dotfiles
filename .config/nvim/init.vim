@@ -56,7 +56,7 @@ if dein#load_state('/Users/diego/.vim/bundles')
   "  call dein#add('roxma/nvim-yarp')
   "  call dein#add('roxma/vim-hug-neovim-rpc')
   "endif
-  call dein#add('ervandew/supertab')
+  "call dein#add('ervandew/supertab')
 
   " C, C++ and Obj madness
   "call dein#add('deoplete-plugins/deoplete-clang')
@@ -74,7 +74,7 @@ if dein#load_state('/Users/diego/.vim/bundles')
 
   " Javascript plugins
   call dein#add('neomake/neomake')
-  call dein#add('ternjs/tern_for_vim', { 'do': 'npm install' })
+  "call dein#add('ternjs/tern_for_vim', { 'do': 'npm install' })
   "call dein#add('carlitux/deoplete-ternjs')
   call dein#add('pangloss/vim-javascript')
 
