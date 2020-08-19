@@ -143,3 +143,4 @@ alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   source "${VIRTUAL_ENV}/bin/activate"
 fi
+export PATH="/usr/local/opt/llvm/bin:$PATH"
