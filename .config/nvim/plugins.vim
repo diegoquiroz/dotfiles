@@ -93,66 +93,17 @@ nmap <Leader>op :NERDTreeFind<CR>
 "let g:python_highlight_all = 1
 "let g:minimap_toggle='<leader>tm'
 
-"" Deoplete config
-""
-""call deoplete#custom#option('auto_complete', v:false)
-"let g:deoplete#enable_at_startup = 1
-"set completeopt-=preview
 "
-"" Deoplete JEDI (python)
-""let g:python_host_prog = '/Users/diego/Developer/venvs/neovim2/bin/python'
-""let g:python3_host_prog = '/Users/diego/Developer/venvs/neovim/bin/python'
-"let g:python_host_prog = '/usr/bin/python'
-"let g:python3_host_prog = '/usr/local/bin/python3'
-"let g:deoplete#sources#jedi#enable_typeinfo=0
-"
-"" Deoplete C, C++, ObjC
-"let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-"let g:deoplete#sources#clang#clang_header='/Library/Developer/CommandLineTools/usr/lib/clang'
-"let g:deoplete#sources#clang#sort_algo='priority'
-"
-"" Deoplete JAVA
-"autocmd FileType java setlocal omnifunc=javacomplete#Complete
-"let g:deoplete#omni_patterns = {}
-"let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-"
-"" CONFIGS of TERN JS
-"" When on, only completions that match the current word at the given point will
-"" be returned. Turn this off to get all results, so that you can filter on the 
-"" client side. Default: 1
-"let g:deoplete#sources#ternjs#filter = 0
-"
-"" Whether to use a case-insensitive compare between the current word and 
-"" potential completions. Default 0
-"let g:deoplete#sources#ternjs#case_insensitive = 1
-"
-"" When completing a property and no completions are found, Tern will use some 
-"" heuristics to try and return some properties anyway. Set this to 0 to 
-"" turn that off. Default: 1
-"let g:deoplete#sources#ternjs#guess = 0
-"
-"" Determines whether the result set will be sorted. Default: 1
-"let g:deoplete#sources#ternjs#sort = 0
-"
-"" Whether to ignore the properties of Object.prototype unless they have been 
-"" spelled out by at least two characters. Default: 1
-"let g:deoplete#sources#ternjs#omit_object_prototype = 0
-"
-"" Whether to include JavaScript keywords when completing something that is not 
-"" a property. Default: 0
-"let g:deoplete#sources#ternjs#include_keywords = 1
-"
-"" If completions should be returned when inside a literal. Default: 1
-"let g:deoplete#sources#ternjs#in_literal = 0
-"
-"" close the preview window when you're not using it
-"let g:SuperTabClosePreviewOnPopupClose = 1
-"let g:SuperTabDefaultCompletionType = "<c-n>"
-"
-""Add extra filetypes
-"let g:deoplete#sources#ternjs#filetypes = [ 'jsx' ]
-"
-"" Use tern_for_vim.
-"let g:tern#command = ["tern"]
-"let g:tern#arguments = ["--persistent"]
+" COC configuration
+" 
 
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()

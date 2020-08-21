@@ -1,4 +1,6 @@
-
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set 256bit color
+""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -7,6 +9,10 @@ endif
 
 "set t_Co=256
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" General stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set encoding=utf-8
 set cursorline
@@ -14,9 +20,14 @@ set cursorcolumn
 set colorcolumn=80
 set ruler
 
+" Use LF line endings
 set fileformat=unix
 
 set hidden
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabs vs spaces
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "" Use tabs
 "set noexpandtab
@@ -29,6 +40,17 @@ set expandtab
 set tabstop=4
 "set tabstop=2
 set shiftwidth=4
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Splits
+""""""""""""""""""""""""""""""""""""""""""""""""""
+set splitbelow 
+set splitright
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO: order this stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set noswapfile
 
