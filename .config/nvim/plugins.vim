@@ -1,17 +1,26 @@
 " Colorsheme
 if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-	colorscheme onehalfdark
-	let g:airline_theme='onehalfdark'
+    colorscheme onehalfdark
+    let g:airline_theme='dracula'
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    "hi IndentGuidesEven ctermbg=238
+    "hi IndentGuidesOdd ctermbg=236
 else
-	colorscheme onehalflight
-	let g:airline_theme='onehalflight'
+    colorscheme onehalflight
+    let g:airline_theme='onehalflight'
+    let g:indent_guides_color_change_percent = 2.5
+    "hi IndentGuidesEven ctermbg=236
+    "hi IndentGuidesOdd ctermbg=238
 endif
 
 " Airline
 "let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
-
+let g:onedark_terminal_italics = 1
 " pear-tree
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
@@ -21,8 +30,8 @@ let g:pear_tree_smart_backspace = 1
 "let g:indentLine_color_term = 239
 "Indent color (tabs)
 let g:indent_guides_enable_on_vim_startup = 1
-hi IndentGuidesEven ctermbg=238
-hi IndentGuidesOdd ctermbg=236
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'fzf']
+
 
 "
 " FZF commands
@@ -65,12 +74,27 @@ if MyOnBattery()
 else
   call neomake#configure#automake('nw', 1000)
 endif
-
-let g:neomake_open_list = 2
-let b:eslint_exe = substitute(system('npm bin') ,'\n', '', 'g') . '/eslint' 
-let b:neomake_eslint_exe = b:eslint_exe
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_html_enabled_makers = []
+"
+"let g:neomake_open_list = 2
+"let b:eslint_exe = substitute(system('npm bin') ,'\n', '', 'g') . '/eslint' 
+"let b:neomake_eslint_exe = b:eslint_exe
+"let g:neomake_javascript_enabled_makers = ['eslint']
+"let g:neomake_html_enabled_makers = []
+"
+let g:neomake_python_pylint_maker = {
+  \ 'args': [
+  \ '-d', 'E0401',
+  \ '-f', 'text',
+  \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
+  \ '-r', 'n'
+  \ ],
+  \ 'errorformat':
+  \ '%A%f:%l:%c:%t: %m,' .
+  \ '%A%f:%l: %m,' .
+  \ '%A%f:(%l): %m,' .
+  \ '%-Z%p^%.%#,' .
+  \ '%-G%.%#',
+  \ }
 
 "
 "NERDTree configs
@@ -85,7 +109,8 @@ let g:NERDTreeWinSize = 25
 "autocmd BufWinEnter * NERDTreeMirror
 "autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 
-nmap <Leader>op :NERDTreeFind<CR>
+"nmap <Leader>op :NERDTreeFind<CR>
+nmap <Leader>op :NERDTree<CR>
 
 
 " Minimap
@@ -107,3 +132,6 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+let g:python3_host_prog = '~/Developer/venvs/neovim/bin/python'
+let g:python_host_prog = '~/Developer/venvs/neovim2/bin/python'

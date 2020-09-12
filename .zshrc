@@ -141,6 +141,22 @@ export PATH="$PATH:/usr/local/anaconda3/bin"
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
-  source "${VIRTUAL_ENV}/bin/activate"
+# source "${VIRTUAL_ENV}/bin/activate"  # commented out by conda initialize
 fi
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

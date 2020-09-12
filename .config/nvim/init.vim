@@ -22,7 +22,9 @@ if dein#load_state('/Users/diego/.vim/bundles')
   " Colorshemes
   call dein#add('dracula/vim', { 'as': 'dracula' })
   call dein#add('sonph/onehalf', {'rtp': 'vim/'})
+  call dein#add('joshdick/onedark.vim')
   call dein#add('gosukiwi/vim-atom-dark')
+  call dein#add('morhetz/gruvbox')
 
   "Indent lines
   "call dein#add('Yggdroot/indentLine')
@@ -51,6 +53,7 @@ if dein#load_state('/Users/diego/.vim/bundles')
 
   " Autocomplete plugin
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+  call dein#add('antoinemadec/coc-fzf')
   "call dein#add('Shougo/deoplete.nvim')
   "if !has('nvim')
   "  call dein#add('roxma/nvim-yarp')
