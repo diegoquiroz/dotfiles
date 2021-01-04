@@ -74,7 +74,7 @@ if MyOnBattery()
 else
   call neomake#configure#automake('nw', 1000)
 endif
-"
+
 "let g:neomake_open_list = 2
 "let b:eslint_exe = substitute(system('npm bin') ,'\n', '', 'g') . '/eslint' 
 "let b:neomake_eslint_exe = b:eslint_exe
@@ -133,5 +133,13 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
-let g:python3_host_prog = '~/Developer/venvs/neovim/bin/python'
+" 
+" IPY
+"
+let g:nvim_ipy_perform_mappings = 0
+map <silent> <c-s> <Plug>(IPy-Run)
+map <silent> <c-d> <Plug>(IPy-RunAll)
+
+"let g:python3_host_prog = '~/Developer/venvs/neovim/bin/python'
+let g:python3_host_prog = '/usr/local/anaconda3/bin/python3'
 let g:python_host_prog = '~/Developer/venvs/neovim2/bin/python'

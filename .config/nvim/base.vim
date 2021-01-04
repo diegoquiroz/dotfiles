@@ -16,7 +16,7 @@ endif
 syntax on
 set encoding=utf-8
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 set colorcolumn=80
 set ruler
 
@@ -37,9 +37,10 @@ set hidden
 set expandtab
 
 "" Tab size 1 tab = 4 spaces
-set tabstop=4
-"set tabstop=2
-set shiftwidth=4
+"set tabstop=4
+set tabstop=2
+"set shiftwidth=4
+set shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Splits

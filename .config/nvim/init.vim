@@ -53,7 +53,7 @@ if dein#load_state('/Users/diego/.vim/bundles')
 
   " Autocomplete plugin
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
-  call dein#add('antoinemadec/coc-fzf')
+  "call dein#add('antoinemadec/coc-fzf')
   "call dein#add('Shougo/deoplete.nvim')
   "if !has('nvim')
   "  call dein#add('roxma/nvim-yarp')
@@ -71,6 +71,8 @@ if dein#load_state('/Users/diego/.vim/bundles')
   " Python
   " Python autocomplete
   "call dein#add('deoplete-plugins/deoplete-jedi')
+  " Jupyter Notebooks
+  call dein#add('bfredl/nvim-ipy')
 
   " HTML plugins
   call dein#add('mattn/emmet-vim')

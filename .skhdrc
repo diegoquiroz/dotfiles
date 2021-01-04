@@ -2,9 +2,9 @@
 f8: yabai -m config layout float
 f9: yabai -m config layout bsp
 
-f6: spotify pause 2> /dev/null || spotify play
+cmd - return : open -a iTerm
 
-# Yamai shortcuts
+# Yabai shortcuts
 # MOD1 = alt + shift
 # MOD2 * alt + shift + ctrl
 #
