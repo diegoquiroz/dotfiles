@@ -1,14 +1,14 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+## Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+## Initialization code that may require console input (password prompts, [y/n]
+## confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+#
+## Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+## Initialization code that may require console input (password prompts, [y/n]
+## confirmations, etc.) must go above this block; everything else may go below.
+#source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -114,11 +114,11 @@ export LANG=en_US.UTF-8
 # Remove '%' sign
 unsetopt PROMPT_SP
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
-function p10k-on-pre-prompt() {}
-function p10k-on-post-prompt() {}
+## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+#typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+#function p10k-on-pre-prompt() {}
+#function p10k-on-post-prompt() {}
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -136,6 +136,8 @@ alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
+alias dm="kitty @ set-colors --all --configured ~/.config/kitty/onehalf-dark.conf"
+alias lm="kitty @ set-colors --all --configured ~/.config/kitty/onehalf-light.conf"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export EDITOR='nvim'
@@ -164,5 +166,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(starship init zsh)"
