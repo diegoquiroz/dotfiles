@@ -15,20 +15,15 @@ if dein#load_state('/Users/diego/.vim/bundles')
   " Required:
   call dein#add('/Users/diego/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
-  " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-  
   " Colorshemes
   call dein#add('dracula/vim', { 'as': 'dracula' })
   call dein#add('sonph/onehalf', {'rtp': 'vim/'})
-  call dein#add('joshdick/onedark.vim')
-  call dein#add('gosukiwi/vim-atom-dark')
-  call dein#add('morhetz/gruvbox')
 
   "Indent lines
-  "call dein#add('Yggdroot/indentLine')
   call dein#add('nathanaelkane/vim-indent-guides')
+
+  "Comment Code
+  call dein#add('tpope/vim-commentary')
 
   " Align columns	
   call dein#add('godlygeek/tabular')
@@ -38,39 +33,36 @@ if dein#load_state('/Users/diego/.vim/bundles')
 
   " Side bar
   call dein#add('scrooloose/nerdtree')
+  "
   " Bottom line for Vim
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+
   " Icons for NERDTree and Airline
   call dein#add('ryanoasis/vim-devicons')
+
   " Fuzzy finder for vim
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+
+  " Terminal in popup window
+  call dein#add('voldikss/vim-floaterm')
+
   " Add tmux navigation shortcuts to vim
   call dein#add('christoomey/vim-tmux-navigator')
+  "
   " Minimap for vim
   "call dein#add('severin-lemaignan/vim-minimap')
 
   " Autocomplete plugin
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
   "call dein#add('antoinemadec/coc-fzf')
-  "call dein#add('Shougo/deoplete.nvim')
-  "if !has('nvim')
-  "  call dein#add('roxma/nvim-yarp')
-  "  call dein#add('roxma/vim-hug-neovim-rpc')
-  "endif
-  "call dein#add('ervandew/supertab')
 
   " C, C++ and Obj madness
-  "call dein#add('deoplete-plugins/deoplete-clang')
-  "call dein#add('Shougo/neoinclude.vim')
 
   " Java
-  "call dein#add('artur-shaik/vim-javacomplete2')
 
   " Python
-  " Python autocomplete
-  "call dein#add('deoplete-plugins/deoplete-jedi')
   " Jupyter Notebooks
   call dein#add('bfredl/nvim-ipy')
 
@@ -79,9 +71,10 @@ if dein#load_state('/Users/diego/.vim/bundles')
 
   " Javascript plugins
   call dein#add('neomake/neomake')
-  "call dein#add('ternjs/tern_for_vim', { 'do': 'npm install' })
-  "call dein#add('carlitux/deoplete-ternjs')
   call dein#add('pangloss/vim-javascript')
+
+  " R plugins
+  call dein#add('jalvesaq/Nvim-R')
 
   " Pair characters plugin
   call dein#add('tmsvg/pear-tree')
@@ -97,10 +90,6 @@ endif
 " Required:
 filetype plugin indent on
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
 
 "End dein Scripts-------------------------
 

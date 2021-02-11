@@ -30,7 +30,7 @@ let g:pear_tree_smart_backspace = 1
 "let g:indentLine_color_term = 239
 "Indent color (tabs)
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'fzf']
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'fzf', 'floaterm']
 
 
 "
@@ -43,6 +43,13 @@ endfunction
 command! ProjectFiles execute 'Files' s:find_git_root()
 nmap <Leader><Leader> :ProjectFiles<CR>
 nmap <Leader>bb :Buffers<CR>
+
+"
+" Floaterm commands
+"
+tnoremap <C-n> <C-\><C-n>
+nmap <Leader>ott :FloatermNew --width=0.8 --height=0.8 --name=floaterm<CR>
+nmap <Leader>ot :FloatermToggle floaterm<CR>
 
 "
 " HTML plugins

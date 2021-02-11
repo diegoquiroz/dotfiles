@@ -30,17 +30,19 @@ set hidden
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 "" Use tabs
-"set noexpandtab
-"set smarttab
+set noexpandtab
+set smarttab
 
 "" Use spaces instead of tabs
-set expandtab
+"set expandtab
 
-"" Tab size 1 tab = 4 spaces
-"set tabstop=4
-set tabstop=2
-"set shiftwidth=4
-set shiftwidth=2
+"" Tab size
+" 1 tab = 4 spaces
+set tabstop=4
+set shiftwidth=4
+" 1 tab = 2 spaces
+"set tabstop=2
+"set shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
