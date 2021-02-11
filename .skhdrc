@@ -1,8 +1,8 @@
 # Laptop shortcuts
-f8: yabai -m config layout float
-f9: yabai -m config layout bsp
+f9 : yabai -m config layout float
+f8 : yabai -m config layout bsp
 
-cmd - return : open -a iTerm
+cmd - return : open -a kitty
 
 # Yabai shortcuts
 # MOD1 = alt + shift

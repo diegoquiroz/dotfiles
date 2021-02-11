@@ -52,7 +52,7 @@ yabai -m rule --add app="^WhatsApp$" manage="off"
 yabai -m rule --add app="^Xcode$" manage="off"
 yabai -m rule --add app="^iStat Menus$" manage="off"
 yabai -m rule --add app="^iStatistica Pro$" manage="off"
-yabai -m rule --add app="*" manage="off"
+#yabai -m rule --add app="*" manage="off"
 
 # yabai layout settings
 yabai -m config layout bsp
