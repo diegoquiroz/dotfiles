@@ -36,10 +36,6 @@ alt + shift + ctrl - down : yabai -m window --warp south
 # Resize focused window (building)
 # You have to be in a left window to resize in x axis
 # and in the bottom window to resize in y axis
-#alt + shift - p : yabai -m window --resize right:25:0 ; yabai -m window --resize left:25:0
-#alt + shift - u : yabai -m window --resize right:-25:0 ; yabai -m window --resize left:-25:0
-#alt + shift - o :  yabai -m window --resize top:0:-25 ; yabai -m window --resize bottom:0:-25
-#alt + shift - i : yabai -m window --resize top:0:25 ; yabai -m window --resize bottom:0:25
 alt + shift - p : yabai -m window east --resize left:25:0 2> /dev/null || yabai -m window --resize left:25:0
 alt + shift - u : yabai -m window west --resize right:-25:0 2> /dev/null || yabai -m window --resize right:-25:0
 alt + shift - o : yabai -m window south --resize top:0:-25 2> /dev/null || yabai -m window --resize top:0:-25
@@ -58,4 +54,5 @@ alt + shift + ctrl - 2 : yabai -m window --space 2
 alt + shift + ctrl - 3 : yabai -m window --space 3
 alt + shift + ctrl - 4 : yabai -m window --space 4
 alt + shift + ctrl - 5 : yabai -m window --space 5
+alt + shift + ctrl - 6 : yabai -m window --space 6
 

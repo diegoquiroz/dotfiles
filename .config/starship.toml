@@ -1,5 +1,8 @@
 [directory]
+format = " [ $path]($style)[$read_only]($read_only_style) "
+style = "bold cyan"
 truncation_length = 8
 truncate_to_repo = false
-format = " [ $path]($style)[$read_only]($read_only_style) "
 
+[git_branch]
+style = "bold #dd0b78"

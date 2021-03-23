@@ -1,55 +1,15 @@
-## Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-## Initialization code that may require console input (password prompts, [y/n]
-## confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-#
-## Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-## Initialization code that may require console input (password prompts, [y/n]
-## confirmations, etc.) must go above this block; everything else may go below.
-#source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
 export ZSH="/Users/diego/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -65,23 +25,14 @@ export ZSH="/Users/diego/.oh-my-zsh"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx vundle)
+plugins=(git osx docker-compose zsh-vi-mode)
+
+eval "$(starship init zsh)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,7 +74,7 @@ unsetopt PROMPT_SP
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
-export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # My stuff
@@ -136,8 +87,6 @@ alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
-alias dm="kitty @ set-colors --all --configured ~/.config/kitty/onehalf-dark.conf"
-alias lm="kitty @ set-colors --all --configured ~/.config/kitty/onehalf-light.conf"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export EDITOR='nvim'
@@ -145,6 +94,14 @@ export GIT_EDITOR='nvim'
 
 # Dotfiles git alias
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+
+alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
+
+if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
+	kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
+else
+	kitty @ set-colors --all --configured ~/.config/kitty/onehalf-light.conf
+fi
 
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
 # source "${VIRTUAL_ENV}/bin/activate"  # commented out by conda initialize
@@ -166,7 +123,3 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-eval "$(starship init zsh)"
