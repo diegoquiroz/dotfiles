@@ -69,8 +69,8 @@ if dein#load_state('/Users/diego/.vim/bundles')
   "call dein#add('mattn/emmet-vim')
 
   " Javascript plugins
-  call dein#add('neomake/neomake')
-  call dein#add('pangloss/vim-javascript')
+  "call dein#add('neomake/neomake')
+  "call dein#add('pangloss/vim-javascript')
 
   " Pair characters plugin
   call dein#add('tmsvg/pear-tree')
@@ -91,6 +91,6 @@ filetype plugin indent on
 
 "-------------------Import files------------------
 source ~/.config/nvim/base.vim
-"lua require('options')
+lua require('options')
 source ~/.config/nvim/plugins.vim
 

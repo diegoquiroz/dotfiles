@@ -6,3 +6,6 @@ truncate_to_repo = false
 
 [git_branch]
 style = "bold #dd0b78"
+
+[conda]
+ignore_base = true

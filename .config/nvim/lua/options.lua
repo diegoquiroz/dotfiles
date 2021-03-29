@@ -22,11 +22,11 @@ end
 
 
 -- Colorsheme and statusline
-if (os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
+if (vim.fn['has']('macunix') == '1' and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
   --vim.cmd('colorscheme onehalflight')
   --require('lualine-light')
 else
-  require('lualine-dark')
+  --require('lualine-dark')
   vim.cmd('colorscheme dracula')
   require('galaxyline_dark')
   --require('lualine-dark')
@@ -94,3 +94,8 @@ vim.api.nvim_set_keymap('', '<c-d>', '<Plug>(IPy-RunAll)', {silent = true})
 
 vim.g.python3_host_prog = '/usr/local/anaconda3/bin/python3'
 vim.g.python_host_prog = '~/Developer/venvs/neovim2/bin/python'
+
+--
+-- Neomake cofigs
+--
+--vim.fn['neomake#configure#automake']('rw')

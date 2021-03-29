@@ -1,4 +1,3 @@
-lua require('options')
 
 "
 " Floaterm commands
@@ -28,20 +27,22 @@ lua require('options')
 "endif
 
 
-let g:neomake_python_pylint_maker = {
-  \ 'args': [
-  \ '-d', 'E0401',
-  \ '-f', 'text',
-  \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
-  \ '-r', 'n'
-  \ ],
-  \ 'errorformat':
-  \ '%A%f:%l:%c:%t: %m,' .
-  \ '%A%f:%l: %m,' .
-  \ '%A%f:(%l): %m,' .
-  \ '%-Z%p^%.%#,' .
-  \ '%-G%.%#',
-  \ }
+"let g:neomake_python_pylint_maker = {
+"  \ 'args': [
+"  \ '-d', 'E0401',
+"  \ '-f', 'text',
+"  \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
+"  \ '-r', 'n'
+"  \ ],
+"  \ 'errorformat':
+"  \ '%A%f:%l:%c:%t: %m,' .
+"  \ '%A%f:%l: %m,' .
+"  \ '%A%f:(%l): %m,' .
+"  \ '%-Z%p^%.%#,' .
+"  \ '%-G%.%#',
+"  \ }
+
+
 
 
 

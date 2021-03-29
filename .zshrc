@@ -32,7 +32,6 @@ export ZSH="/Users/diego/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git osx docker-compose zsh-vi-mode)
 
-eval "$(starship init zsh)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,7 +73,7 @@ unsetopt PROMPT_SP
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git"
+export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # My stuff
@@ -85,6 +84,7 @@ alias counter=~/Developer/shell/counter
 alias sp=spotify
 alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
+alias cnvim="nvim $HOME/.config/nvim/"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
 
@@ -97,10 +97,16 @@ alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
 alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
-if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-	kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
-else
-	kitty @ set-colors --all --configured ~/.config/kitty/onehalf-light.conf
+function checkDarkMode() {
+    if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
+    	kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
+    else
+    	kitty @ set-colors --all --configured ~/.config/kitty/onehalf-light.conf
+    fi
+}
+
+if [[ $TERM == 'xterm-kitty' && $OSTYPE == 'darwin20.0' ]]; then
+    checkDarkMode
 fi
 
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
@@ -123,3 +129,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+eval "$(starship init zsh)"
