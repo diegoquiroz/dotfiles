@@ -1,6 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="/Users/diego/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -105,8 +105,12 @@ function checkDarkMode() {
     fi
 }
 
-if [[ $TERM == 'xterm-kitty' && $OSTYPE == 'darwin20.0' ]]; then
-    checkDarkMode
+if [[ $TERM == 'xterm-kitty' ]]; then
+    if [[ $OSTYPE == 'darwin20.0' ]]; then
+        checkDarkMode
+    else
+    	kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
+    fi
 fi
 
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then

@@ -4,15 +4,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/diego/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/diego/.vim/bundles')
-  call dein#begin('/Users/diego/.vim/bundles')
+if dein#load_state('$HOME/.vim/bundles')
+  call dein#begin('$HOME/.vim/bundles')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/diego/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
   call dein#add('tweekmonster/startuptime.vim')
   call dein#add('nvim-treesitter/nvim-treesitter', { 'merged': 0 })
