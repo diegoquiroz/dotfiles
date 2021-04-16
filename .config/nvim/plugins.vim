@@ -51,6 +51,7 @@
 "
 " COC configuration
 " 
+let g:coc_global_extensions = ['coc-lua', 'coc-rls', 'coc-tsserver', 'coc-snippets', 'coc-emmet', 'coc-html', 'coc-eslint', 'coc-prettier', 'coc-tailwindcss', 'coc-yaml', 'coc-json']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
