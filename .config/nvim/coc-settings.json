@@ -1,0 +1,25 @@
+{
+	"eslint.autoFixOnSave": true,
+	"eslint.probe": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"vue",
+		"markdown"
+	],
+	"coc.preferences.formatOnSaveFiletypes": [
+		"javascript",
+		"typescript",
+		"css",
+		"markdown",
+		"json"
+	],
+	"prettier.tabWidth": 4,
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+	"prettier.disableSuccessMessage": true,
+	"prettier.eslintIntegration": true,
+	"prettier.tslintIntegration": true
+}
