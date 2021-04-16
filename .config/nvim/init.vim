@@ -25,6 +25,7 @@ if dein#load_state('$HOME/.vim/bundles')
   " Colorshemes
   call dein#add('dracula/vim', { 'as': 'dracula' })
   call dein#add('sonph/onehalf', {'rtp': 'vim/'})
+  call dein#add('kaicataldo/material.vim', {'rev': 'main'})
 
   "Indent lines
   call dein#add('nathanaelkane/vim-indent-guides')

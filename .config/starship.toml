@@ -9,3 +9,6 @@ style = "bold #dd0b78"
 
 [conda]
 ignore_base = true
+
+[battery]
+disabled = true

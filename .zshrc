@@ -99,7 +99,8 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-    	kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
+    	#kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
     else
     	kitty @ set-colors --all --configured ~/.config/kitty/onehalf-light.conf
     fi
@@ -109,7 +110,9 @@ if [[ $TERM == 'xterm-kitty' ]]; then
     if [[ $OSTYPE == 'darwin20.0' ]]; then
         checkDarkMode
     else
-    	kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
+    	#kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
+
     fi
 fi
 

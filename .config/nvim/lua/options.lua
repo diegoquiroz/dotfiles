@@ -27,8 +27,11 @@ if (vim.fn['has']('macunix') == '1' and os_command('2>/dev/null defaults read -g
   --require('lualine-light')
 else
   --require('lualine-dark')
-  vim.cmd('colorscheme dracula')
-  require('galaxyline_dark')
+  --vim.cmd('colorscheme dracula')
+  vim.g.material_therminal_italics = 1
+  vim.g.material_theme_style = 'darker'
+  vim.cmd('colorscheme material')
+  require('galaxyline_dark-material')
   --require('lualine-dark')
   vim.api.nvim_set_var('indent_guides_start_level', 2)
   vim.api.nvim_set_var('indent_guides_guide_size', 1)
@@ -37,7 +40,7 @@ end
 -- require('galaxyline_dark')
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {'python', 'javascript', 'html', 'css'},
+  ensure_installed = {'python', 'javascript', 'html', 'css', 'lua', 'php'},
   highlight = {
     enable = true
   },
@@ -71,7 +74,7 @@ end
 
 vim.cmd("command! ProjectFiles execute 'Files' luaeval('find_git_root()')")
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':ProjectFiles<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>bb', ':Buffers', {})
+vim.api.nvim_set_keymap('n', '<Leader>bb', ':Buffers<CR>', {})
 
 --
 -- JavaScript Config plugins
