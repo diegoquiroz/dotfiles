@@ -28,9 +28,12 @@ if (vim.fn['has']('macunix') == '1' and os_command('2>/dev/null defaults read -g
 else
   --require('lualine-dark')
   --vim.cmd('colorscheme dracula')
-  vim.g.material_therminal_italics = 1
-  vim.g.material_theme_style = 'darker'
-  vim.cmd('colorscheme material')
+  --vim.g.material_therminal_italics = 1
+  --vim.g.material_theme_style = 'darker'
+  --vim.cmd('colorscheme material')
+  vim.g.material_style = 'darker'
+  vim.g.material_italic_keywords = true
+  require('material').set()
   require('galaxyline_dark-material')
   --require('lualine-dark')
   vim.api.nvim_set_var('indent_guides_start_level', 2)
@@ -102,3 +105,9 @@ vim.g.python_host_prog = '~/Developer/venvs/neovim2/bin/python'
 -- Neomake cofigs
 --
 --vim.fn['neomake#configure#automake']('rw')
+
+--
+-- Theme configs
+--
+vim.api.nvim_set_keymap('n', '<Leader>9', [[<Cmd>lua require('material.functions').change_style('lighter')<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>0', [[<Cmd>lua require('material.functions').change_style('darker')<CR>]], { noremap = true, silent = true })
