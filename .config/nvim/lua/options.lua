@@ -24,18 +24,18 @@ end
 -- Colorsheme and statusline
 vim.g.material_italic_keywords = true
 
-if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == 'Dark') then
+if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
   --vim.cmd('colorscheme onehalflight')
-  require('galaxyline_dark-material')
-  vim.g.material_style = 'darker'
+  require('galaxyline_light-material')
+  vim.g.material_style = 'lighter'
 else
   --require('lualine-dark')
   --vim.cmd('colorscheme dracula')
   --vim.g.material_therminal_italics = 1
   --vim.g.material_theme_style = 'darker'
   --vim.cmd('colorscheme material')
-  require('galaxyline_light-material')
-  vim.g.material_style = 'lighter'
+  require('galaxyline_dark-material')
+  vim.g.material_style = 'darker'
 end
 
 require('material').set()
