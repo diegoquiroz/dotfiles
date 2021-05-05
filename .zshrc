@@ -48,6 +48,7 @@ alias desktopmode="brew services start yabai"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
+export VISUAL=$EDITOR
 
 # Dotfiles git alias
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
@@ -59,7 +60,7 @@ function checkDarkMode() {
     	#kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
     	kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
     else
-    	kitty @ set-colors --all --configured ~/.config/kitty/onehalf-light.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/material-lighter.conf
     fi
 }
 

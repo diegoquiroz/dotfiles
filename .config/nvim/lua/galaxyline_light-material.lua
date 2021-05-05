@@ -8,7 +8,7 @@ colors.magenta = '#C792EA'
 colors.green = '#C3E88D'
 colors.blue = '#82AAFF'
 colors.violet = '#B66FFD'
-colors.bg = '#212121'
+colors.bg = '#FAFAFA'
 
 gls.left[1] = {
   RainbowRed = {

@@ -29,7 +29,7 @@ if dein#load_state('$HOME/.vim/bundles')
   call dein#add('marko-cerovac/material.nvim')
 
   "Indent lines
-  call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('lukas-reineke/indent-blankline.nvim', { 'rev': 'lua' })
 
   "Comment Code
   call dein#add('tpope/vim-commentary')
