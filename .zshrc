@@ -34,7 +34,6 @@ export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # My stuff
-neofetch|lolcat -t --force
 
 alias web=~/Developer/shell/web
 alias counter=~/Developer/shell/counter
@@ -67,6 +66,7 @@ function checkDarkMode() {
 if [[ $TERM == 'xterm-kitty' ]]; then
     if [[ $OSTYPE == 'darwin20.0' ]]; then
         checkDarkMode
+        neofetch|lolcat -t --force
     else
     	#kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
     	kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
@@ -95,3 +95,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(starship init zsh)"
+cd $HOME
