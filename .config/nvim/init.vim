@@ -18,17 +18,23 @@ if dein#load_state('$HOME/.vim/bundles')
   call dein#add('nvim-treesitter/nvim-treesitter', { 'merged': 0 })
   call dein#add('nvim-treesitter/playground')
 
+  call dein#add('akinsho/nvim-bufferline.lua')
   " Improve movements
-  "call dein#add('takac/vim-hardtime')
+  " Vertical Movement
   call dein#add('justinmk/vim-sneak')
+  " Horizontal movement
+  call dein#add('hrsh7th/vim-eft')
 
   " Colorshemes
   call dein#add('dracula/vim', { 'as': 'dracula' })
   call dein#add('sonph/onehalf', {'rtp': 'vim/'})
-  "call dein#add('kaicataldo/material.vim', {'rev': 'main'})
+  call dein#add('folke/tokyonight.nvim')
+  call dein#add('ayu-theme/ayu-vim')
   call dein#add('marko-cerovac/material.nvim')
 
+  "TODO: define which indent guide plugin to use
   "Indent lines
+  "call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('lukas-reineke/indent-blankline.nvim', { 'rev': 'lua' })
 
   "Comment Code
@@ -48,7 +54,6 @@ if dein#load_state('$HOME/.vim/bundles')
   
   " Bottom line for Vim
   call dein#add('glepnir/galaxyline.nvim', {'rev': 'main'})
-  "call dein#add('hoob3rt/lualine.nvim')
 
   " Icons for NERDTree and Airline
   call dein#add('kyazdani42/nvim-web-devicons')
@@ -60,12 +65,20 @@ if dein#load_state('$HOME/.vim/bundles')
   " Add tmux navigation shortcuts to vim
   call dein#add('christoomey/vim-tmux-navigator')
 
+  " Language Server Protocol
+  call dein#add('neovim/nvim-lspconfig')
+  call dein#add('hrsh7th/vim-vsnip')
+  call dein#add('hrsh7th/vim-vsnip-integ')
+  " Cool error/diagnostics list
+  call dein#add('folke/trouble.nvim')
+
   " Autocomplete plugin
-  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+  call dein#add('hrsh7th/nvim-compe')
+  call dein#add('folke/todo-comments.nvim')
 
   " Python
   " Jupyter Notebooks
-  call dein#add('bfredl/nvim-ipy')
+  "call dein#add('bfredl/nvim-ipy')
 
   " HTML plugins
   "call dein#add('mattn/emmet-vim')
@@ -75,10 +88,11 @@ if dein#load_state('$HOME/.vim/bundles')
   "call dein#add('pangloss/vim-javascript')
 
   " Pair characters plugin
-  call dein#add('tmsvg/pear-tree')
+  " call dein#add('tmsvg/pear-tree')
+  call dein#add('windwp/nvim-autopairs')
  
   " Color hexcodes
-  call dein#add('gko/vim-coloresque')
+  call dein#add('norcalli/nvim-colorizer.lua')
 
   " Required:
   call dein#end()
@@ -93,6 +107,9 @@ filetype plugin indent on
 
 "-------------------Import files------------------
 source ~/.config/nvim/base.vim
+"source ~/.config/nvim/gui.vim
 lua require('options')
-source ~/.config/nvim/plugins.vim
-
+lua require('lsp')
+lua require('completion')
+lua require('ntree')
+lua require('nbufferline')

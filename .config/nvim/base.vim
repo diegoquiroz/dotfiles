@@ -3,7 +3,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 set termguicolors
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " General stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -13,10 +12,13 @@ set cursorline
 set colorcolumn=80
 set number
 set relativenumber
-"set signcolumn=yes
+set signcolumn=yes
+"set autochdir
 
 " Use LF line endings
 set fileformat=unix
+
+set noemoji
 
 " Allow change buffer without saving it
 set hidden
@@ -60,8 +62,8 @@ set splitright
 " TODO: order this stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
+set completeopt=menu,menuone,noselect
 
-"set signcolumn=number
 set nowrap
 set autoindent
 "set textwidth=80
@@ -84,3 +86,4 @@ nmap <Leader>wc :close<CR>
 
 highlight link htmlTag htmlTagName
 highlight link htmlEndTag htmlTagName
+
