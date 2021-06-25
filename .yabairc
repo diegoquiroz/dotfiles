@@ -1,7 +1,12 @@
+#sudo yabai --load-sa
+
 # yabai layout settings
 yabai -m config layout bsp
 
-yabai -m rule --add app!="^(Finder|Safari|kitty|Preview|Pages|Excel|Word|Dash)$" manage=off
+# rules
+yabai -m rule --add app!="^(Safari|kitty|Preview|Pages|Excel|Word|Dash)$" manage=off
+#yabai -m window --toggle border
+#yabai -m config active_window_border_color "0xFFFFFF00"
 
 #yabai -m config --space 2 layout bsp
 #yabai -m config --space 3 layout bsp

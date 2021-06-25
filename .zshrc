@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/Users/diego/.deno/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -40,14 +40,17 @@ alias counter=~/Developer/shell/counter
 alias sp=spotify
 alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
-alias cnvim="nvim $HOME/.config/nvim/"
+alias cnvim="nvim $HOME/.config/nvim/init.vim"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
+alias l="exa --all --long --header --git"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export VISUAL=$EDITOR
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Dotfiles git alias
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
@@ -56,20 +59,18 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-    	#kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
-    	kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/primer-dark.conf
     else
-    	kitty @ set-colors --all --configured ~/.config/kitty/material-lighter.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/primer-light.conf
     fi
 }
 
 if [[ $TERM == 'xterm-kitty' ]]; then
-    if [[ $OSTYPE == 'darwin20.0' ]]; then
+    if [[ $OSTYPE == 'darwin21.0' ]]; then
         checkDarkMode
         neofetch|lolcat -t --force
     else
-    	#kitty @ set-colors --all --configured ~/.config/kitty/dracula.conf
-    	kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/primer-dark.conf
 
     fi
 fi
@@ -95,4 +96,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(starship init zsh)"
-cd $HOME
+#cd $HOME
