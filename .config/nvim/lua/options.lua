@@ -26,9 +26,8 @@ vim.g.material_italic_keywords = true
 
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
   --require('galaxyline_light-material')
-  --vim.g.material_style = 'lighter'
   require('line')
-  vim.g.material_style = 'deep ocean'
+  vim.g.material_style = 'lighter'
 else
   --require('galaxyline_dark-material')
   require('line')

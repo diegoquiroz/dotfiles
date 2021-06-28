@@ -66,7 +66,7 @@ function checkDarkMode() {
 }
 
 if [[ $TERM == 'xterm-kitty' ]]; then
-    if [[ $OSTYPE == 'darwin21.0' ]]; then
+    if [[ $OSTYPE == 'darwin20.0' ]]; then
         checkDarkMode
         neofetch|lolcat -t --force
     else

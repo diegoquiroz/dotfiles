@@ -4,7 +4,7 @@
 yabai -m config layout bsp
 
 # rules
-yabai -m rule --add app!="^(Safari|kitty|Preview|Pages|Excel|Word|Dash)$" manage=off
+yabai -m rule --add app!="^(Safari|Safari Technology Preview|kitty|Preview|Pages|Excel|Word|Dash)$" manage=off
 #yabai -m window --toggle border
 #yabai -m config active_window_border_color "0xFFFFFF00"
 
