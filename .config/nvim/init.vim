@@ -26,11 +26,12 @@ if dein#load_state('$HOME/.vim/bundles')
   call dein#add('hrsh7th/vim-eft')
 
   " Colorshemes
-  call dein#add('dracula/vim', { 'as': 'dracula' })
-  call dein#add('sonph/onehalf', {'rtp': 'vim/'})
-  call dein#add('folke/tokyonight.nvim')
-  call dein#add('ayu-theme/ayu-vim')
+  call dein#add('monsonjeremy/onedark.nvim')
+  "call dein#add('sonph/onehalf', {'rtp': 'vim/'})
+  "call dein#add('folke/tokyonight.nvim')
+  "call dein#add('ayu-theme/ayu-vim')
   call dein#add('marko-cerovac/material.nvim')
+  call dein#add('shaunsingh/nord.nvim')
 
   "TODO: define which indent guide plugin to use
   "Indent lines
@@ -59,8 +60,9 @@ if dein#load_state('$HOME/.vim/bundles')
   call dein#add('kyazdani42/nvim-web-devicons')
 
   " Fuzzy finder for vim
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  "call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+  "call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  call dein#add('camspiers/snap')
 
   " Add tmux navigation shortcuts to vim
   call dein#add('christoomey/vim-tmux-navigator')

@@ -59,9 +59,12 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-    	kitty @ set-colors --all --configured ~/.config/kitty/primer-dark.conf
+    	#kitty @ set-colors --all --configured ~/.config/kitty/primer-dark.conf
+    	#kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/onehalf-dark.conf
     else
-    	kitty @ set-colors --all --configured ~/.config/kitty/primer-light.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/material-lighter.conf
+    	#kitty @ set-colors --all --configured ~/.config/kitty/primer-light.conf
     fi
 }
 

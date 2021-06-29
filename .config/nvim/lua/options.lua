@@ -1,23 +1,23 @@
 function os_command(command)
-    local handle = io.popen(command)
-    local result = handle:read('*a')
-    handle.close()
-    handle:close()
+  local handle = io.popen(command)
+  local result = handle:read('*a')
+  handle.close()
+  handle:close()
 
-    if raw then 
-        return output
-    end
+  if raw then 
+    return output
+  end
 
-    result = string.gsub(
-        string.gsub(
-            string.gsub(result, '^%s+', ''),
-            '%s+$',
-            ''
-        ),
-        '[\n\r]+',
-        ' '
-    )
-    return result
+  result = string.gsub(
+    string.gsub(
+      string.gsub(result, '^%s+', ''),
+      '%s+$',
+      ''
+    ),
+    '[\n\r]+',
+    ' '
+  )
+  return result
 end
 
 
@@ -28,13 +28,17 @@ if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g A
   --require('galaxyline_light-material')
   require('line')
   vim.g.material_style = 'lighter'
+  require('material').set()
 else
   --require('galaxyline_dark-material')
   require('line')
 
   --vim.g.ayucolor = 'mirage'
   --vim.g.tokyonight_style = "night"
-  vim.g.material_style = 'deep ocean'
+  --vim.g.material_style = 'darker'
+  vim.cmd[[colorscheme onedark]]
+  vim.g.onedark_italic_functions = true
+  vim.g.onedark_colors = { hint = "orange", error = "#ff0000" }
   --vim.api.nvim_set_var('indent_guides_start_level', 2)
   --vim.api.nvim_set_var('indent_guides_guide_size', 1)
 end
@@ -42,7 +46,6 @@ end
 --vim.g.tokyonight_dark_sidebar = false
 --vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 --vim.cmd[[colorscheme tokyonight]]
-require('material').set()
 
 -- Auto Pairs
 local npairs = require('nvim-autopairs')
@@ -147,10 +150,17 @@ function find_git_root()
     return os_command('git rev-parse --show-toplevel 2> /dev/null')
 end
 
-vim.cmd("command! ProjectFiles execute 'Files' luaeval('find_git_root()')")
-vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':ProjectFiles<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>bb', ':Buffers<CR>', {})
+--vim.cmd("command! ProjectFiles execute 'Files' luaeval('find_git_root()')")
+--vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':ProjectFiles<CR>', {})
+--vim.api.nvim_set_keymap('n', '<Leader>bb', ':Buffers<CR>', {})
 
+local snap = require'snap'
+snap.maps {
+  {"<Leader><Leader>", snap.config.file {producer = "ripgrep.file"}},
+  {"<Leader>bb", snap.config.file {producer = "vim.buffer"}},
+  {"<Leader>fo", snap.config.file {producer = "vim.oldfile"}},
+  {"<Leader>ff", snap.config.vimgrep {}},
+}
 --
 -- JavaScript Config plugins
 --
