@@ -1,26 +1,31 @@
 local lsp = require('lspconfig')
 
 lsp.intelephense.setup{}
-lsp.pyls.setup{}
+-- For python autocompletion
+lsp.pylsp.setup{}
 lsp.efm.setup{
   on_attach = on_attach,
   init_options = {
 	documentFormatting = true,
     codeAction = true,
   },
---  filetypes = { 
---	  "python",
+  filetypes = { 
+	  "python",
 --	  --"typescript" 
---  },
+  },
   settings = {
     languages = {
+      -- For python linting and formatting
       python = {
         {
           lintCommand = "pylint ${INPUT} --msg-template='{path}:{line}:{column}: {msg_id}: {msg}'",
           lintStdin = true,
           lintIgnoreExitCode = true,
           lintFormats = {"%f:%l:%c: %m"},
-          lintSource = "pylint"
+          lintSource = "pylint",
+
+          formatCommand = "black -S -l 79 -",
+          formatStdin = true
         }
       },
 	  --typescript = {
@@ -105,6 +110,7 @@ vim.fn.sign_define("LspDiagnosticsSignHint", {text = "💡", numhl = "LspDiagnos
 
 
 vim.cmd[[autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)]]
+vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.expandtab = true]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.tabstop = 2]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.shiftwidth = 2]]

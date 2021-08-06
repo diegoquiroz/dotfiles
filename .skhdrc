@@ -1,6 +1,6 @@
 # Laptop shortcuts
-f9 : sh ~/Developer/scripts/laptopmode
-f8 : sh ~/Developer/scripts/desktopmode
+f8 : sh ~/Developer/scripts/laptopmode
+f9 : sh ~/Developer/scripts/desktopmode
 
 cmd - return : open -a kitty
 

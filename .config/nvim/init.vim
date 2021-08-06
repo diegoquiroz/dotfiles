@@ -4,15 +4,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('$HOME/.vim/bundles')
-  call dein#begin('$HOME/.vim/bundles')
+if dein#load_state('$HOME/.cache/dein')
+  call dein#begin('$HOME/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   call dein#add('tweekmonster/startuptime.vim')
   call dein#add('nvim-treesitter/nvim-treesitter', { 'merged': 0 })
@@ -31,24 +31,24 @@ if dein#load_state('$HOME/.vim/bundles')
   "call dein#add('folke/tokyonight.nvim')
   "call dein#add('ayu-theme/ayu-vim')
   call dein#add('marko-cerovac/material.nvim')
-  call dein#add('shaunsingh/nord.nvim')
+  call dein#add('projekt0n/github-nvim-theme')
 
   "TODO: define which indent guide plugin to use
   "Indent lines
   "call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('lukas-reineke/indent-blankline.nvim', { 'rev': 'lua' })
+  call dein#add('lukas-reineke/indent-blankline.nvim')
 
   "Comment Code
   call dein#add('tpope/vim-commentary')
 
-  " Align columns	
+  " Align columns
   "call dein#add('godlygeek/tabular')
 
   " Markdown
   "call dein#add('plasticboy/vim-markdown')
   call dein#add('iamcco/markdown-preview.nvim', {
   \ 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
-	\ 'build': 'sh -c "cd app && npm install"' })
+	\ 'build': 'sh -c "cd app && yarn install"' })
 
   " Side bar
   call dein#add('kyazdani42/nvim-tree.lua')
@@ -60,9 +60,13 @@ if dein#load_state('$HOME/.vim/bundles')
   call dein#add('kyazdani42/nvim-web-devicons')
 
   " Fuzzy finder for vim
-  "call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  "call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-  call dein#add('camspiers/snap')
+  "call dein#add('camspiers/snap')
+  call dein#add('nvim-lua/popup.nvim')
+  call dein#add('nvim-lua/plenary.nvim')
+  call dein#add('nvim-telescope/telescope.nvim')
+
+  " Git stuff
+  call dein#add('lewis6991/gitsigns.nvim')
 
   " Add tmux navigation shortcuts to vim
   call dein#add('christoomey/vim-tmux-navigator')
@@ -71,6 +75,7 @@ if dein#load_state('$HOME/.vim/bundles')
   call dein#add('neovim/nvim-lspconfig')
   call dein#add('hrsh7th/vim-vsnip')
   call dein#add('hrsh7th/vim-vsnip-integ')
+
   " Cool error/diagnostics list
   call dein#add('folke/trouble.nvim')
 

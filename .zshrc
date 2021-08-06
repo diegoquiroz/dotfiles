@@ -59,12 +59,9 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-    	#kitty @ set-colors --all --configured ~/.config/kitty/primer-dark.conf
-    	#kitty @ set-colors --all --configured ~/.config/kitty/material-ocean.conf
-    	kitty @ set-colors --all --configured ~/.config/kitty/onehalf-dark.conf
+    	kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/dark.conf
     else
-    	kitty @ set-colors --all --configured ~/.config/kitty/material-lighter.conf
-    	#kitty @ set-colors --all --configured ~/.config/kitty/primer-light.conf
+    	kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/light.conf
     fi
 }
 
@@ -73,8 +70,7 @@ if [[ $TERM == 'xterm-kitty' ]]; then
         checkDarkMode
         neofetch|lolcat -t --force
     else
-    	kitty @ set-colors --all --configured ~/.config/kitty/primer-dark.conf
-
+    	kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/dark.conf
     fi
 fi
 
@@ -100,3 +96,6 @@ unset __conda_setup
 
 eval "$(starship init zsh)"
 #cd $HOME
+
+# Created by `pipx` on 2021-07-20 05:05:38
+export PATH="$PATH:/Users/diego/.local/bin"

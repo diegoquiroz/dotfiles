@@ -22,30 +22,24 @@ end
 
 
 -- Colorsheme and statusline
-vim.g.material_italic_keywords = true
 
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
-  --require('galaxyline_light-material')
   require('line')
-  vim.g.material_style = 'lighter'
-  require('material').set()
-else
-  --require('galaxyline_dark-material')
-  require('line')
+  require('github-theme').setup({
+    hideInactiveStatusline = true,
+    functionStyle = "italic",
+    themeStyle = 'light'
+  })
 
-  --vim.g.ayucolor = 'mirage'
-  --vim.g.tokyonight_style = "night"
-  --vim.g.material_style = 'darker'
-  vim.cmd[[colorscheme onedark]]
-  vim.g.onedark_italic_functions = true
-  vim.g.onedark_colors = { hint = "orange", error = "#ff0000" }
-  --vim.api.nvim_set_var('indent_guides_start_level', 2)
-  --vim.api.nvim_set_var('indent_guides_guide_size', 1)
+else
+  require('line')
+  require('github-theme').setup({
+    hideInactiveStatusline = true,
+    functionStyle = "italic",
+    themeStyle = 'dark'
+  })
+
 end
---vim.cmd[[colorscheme ayu]]
---vim.g.tokyonight_dark_sidebar = false
---vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
---vim.cmd[[colorscheme tokyonight]]
 
 -- Auto Pairs
 local npairs = require('nvim-autopairs')
@@ -142,32 +136,30 @@ vim.api.nvim_set_keymap("n", "T", "<Plug>(eft-T)", {})
 vim.api.nvim_set_keymap("x", "T", "<Plug>(eft-T)", {})
 vim.api.nvim_set_keymap("o", "T", "<Plug>(eft-T)", {})
 
+
 --[[
-FZF commands
+Telescope (yes, I went to the dark side)
 --]]
-
-function find_git_root()
-    return os_command('git rev-parse --show-toplevel 2> /dev/null')
-end
-
---vim.cmd("command! ProjectFiles execute 'Files' luaeval('find_git_root()')")
---vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':ProjectFiles<CR>', {})
---vim.api.nvim_set_keymap('n', '<Leader>bb', ':Buffers<CR>', {})
-
-local snap = require'snap'
-snap.maps {
-  {"<Leader><Leader>", snap.config.file {producer = "ripgrep.file"}},
-  {"<Leader>bb", snap.config.file {producer = "vim.buffer"}},
-  {"<Leader>fo", snap.config.file {producer = "vim.oldfile"}},
-  {"<Leader>ff", snap.config.vimgrep {}},
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--word-regexp',
+    },
+    prompt_prefix="🔍 "
+  }
 }
---
--- JavaScript Config plugins
---
 
--- vim-javascript hightlighter
---vim.g.javascript_plugin_jsdoc = 1
-
+vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':lua require("telescope.builtin").find_files()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>fg', ':lua require("telescope.builtin").live_grep()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>bb', ':lua require("telescope.builtin").buffers()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>fh', ':lua require("telescope.builtin").help_tags()<CR>', {})
 
 
 --[[
@@ -196,3 +188,4 @@ vim.api.nvim_set_keymap('n', '<Leader>8', [[<Cmd>lua require('material.functions
 require("todo-comments").setup{}
 require("trouble").setup{}
 require("colorizer").setup()
+require('gitsigns').setup()
