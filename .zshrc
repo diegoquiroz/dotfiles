@@ -51,6 +51,7 @@ export GIT_EDITOR='nvim'
 export VISUAL=$EDITOR
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export DOCKER_BUILDKIT=1
 
 # Dotfiles git alias
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
