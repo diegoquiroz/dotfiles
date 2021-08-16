@@ -116,6 +116,7 @@ filetype plugin indent on
 source ~/.config/nvim/base.vim
 "source ~/.config/nvim/gui.vim
 lua require('options')
+lua require('formatter')
 lua require('lsp')
 lua require('completion')
 lua require('ntree')

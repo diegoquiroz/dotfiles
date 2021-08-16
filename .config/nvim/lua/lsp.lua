@@ -2,7 +2,15 @@ local lsp = require('lspconfig')
 
 lsp.intelephense.setup{}
 -- For python autocompletion
-lsp.pylsp.setup{}
+lsp.pylsp.setup{
+settings = {
+    pylsp = {
+      plugins = {
+        black = { enabled = true },
+        flake8 = { enabled = true }
+      }
+    }
+  }}
 lsp.efm.setup{
   on_attach = on_attach,
   init_options = {
@@ -10,7 +18,7 @@ lsp.efm.setup{
     codeAction = true,
   },
   filetypes = { 
-	  "python",
+	  --"python",
 --	  --"typescript" 
   },
   settings = {
@@ -18,14 +26,14 @@ lsp.efm.setup{
       -- For python linting and formatting
       python = {
         {
-          lintCommand = "pylint ${INPUT} --msg-template='{path}:{line}:{column}: {msg_id}: {msg}'",
-          lintStdin = true,
-          lintIgnoreExitCode = true,
-          lintFormats = {"%f:%l:%c: %m"},
-          lintSource = "pylint",
+          --lintCommand = "pylint ${INPUT} --msg-template='{path}:{line}:{column}: {msg_id}: {msg}'",
+          --lintStdin = true,
+          --lintIgnoreExitCode = true,
+          --lintFormats = {"%f:%l:%c: %m"},
+          --lintSource = "pylint",
 
-          formatCommand = "black -S -l 79 -",
-          formatStdin = true
+          --formatCommand = "black -S -l 79 -",
+          --formatStdin = true
         }
       },
 	  --typescript = {
@@ -110,7 +118,7 @@ vim.fn.sign_define("LspDiagnosticsSignHint", {text = "💡", numhl = "LspDiagnos
 
 
 vim.cmd[[autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)]]
-vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
+vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync()]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.expandtab = true]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.tabstop = 2]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.shiftwidth = 2]]

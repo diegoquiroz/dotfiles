@@ -169,7 +169,7 @@ vim.g.nvim_ipy_perform_mappings = 0
 vim.api.nvim_set_keymap('', '<c-s>', '<Plug>(IPy-Run)', {silent = true})
 vim.api.nvim_set_keymap('', '<c-d>', '<Plug>(IPy-RunAll)', {silent = true})
 
-vim.g.python3_host_prog = '/usr/local/anaconda3/bin/python3'
+--vim.g.python3_host_prog = '/usr/local/anaconda3/bin/python3'
 --vim.g.python_host_prog = '~/Developer/venvs/neovim2/bin/python'
 
 
