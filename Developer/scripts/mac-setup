@@ -1,0 +1,28 @@
+#! /bin/bash
+
+xcode-select --install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Tools
+brew install starship neofetch lolcat rg fd fzf exa pipx
+
+# Terminal emulator
+brew install --cask kitty
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
+
+# Fonts
+brew tap homebrew/cask-fonts
+brew install font-jetbrains-mono font-fira-code-nerd-font
+
+# Languages
+brew install deno node go
+
+# LSP
+npm install -g intelephense vscode-langservers-extracted vls
+brew install efm-langserver
+pipx install 'python-lsp-server[all]'
+GO111MODULE=on go get golang.org/x/tools/gopls@latest
+
+# TODO:
+# Add Dein and Neovim

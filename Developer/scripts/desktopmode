@@ -1,0 +1,8 @@
+#!/bin/sh
+
+killall "Bartender 4"
+killall Magnet
+killall BetterTouchTool && killall BTTRelaunch
+brew services start yabai && yabai -m config layout bsp
+open -a /Applications/MonitorControl.app
+#open -a /Applications/TinkerTool.app
