@@ -15,7 +15,6 @@ require("bufferline").setup {
         show_close_icon = false,
         show_buffer_close_icons = true,
         separator_style = "thin",
-        mappings = "true",
         diagnostics = "nvim_lsp"
     }
 }

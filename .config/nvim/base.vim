@@ -9,7 +9,7 @@ set termguicolors
 "syntax off
 set encoding=utf-8
 set cursorline
-set colorcolumn=80
+"set colorcolumn=80
 set number
 set relativenumber
 set signcolumn=yes

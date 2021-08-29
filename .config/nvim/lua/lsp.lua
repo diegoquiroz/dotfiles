@@ -3,51 +3,12 @@ local lsp = require('lspconfig')
 lsp.intelephense.setup{}
 -- For python autocompletion
 lsp.pylsp.setup{
-settings = {
+  settings = {
     pylsp = {
       plugins = {
         black = { enabled = true },
-        flake8 = { enabled = true }
+        flake8 = { enabled = true },
       }
-    }
-  }}
-lsp.efm.setup{
-  on_attach = on_attach,
-  init_options = {
-	documentFormatting = true,
-    codeAction = true,
-  },
-  filetypes = { 
-	  --"python",
---	  --"typescript" 
-  },
-  settings = {
-    languages = {
-      -- For python linting and formatting
-      python = {
-        {
-          --lintCommand = "pylint ${INPUT} --msg-template='{path}:{line}:{column}: {msg_id}: {msg}'",
-          --lintStdin = true,
-          --lintIgnoreExitCode = true,
-          --lintFormats = {"%f:%l:%c: %m"},
-          --lintSource = "pylint",
-
-          --formatCommand = "black -S -l 79 -",
-          --formatStdin = true
-        }
-      },
-	  --typescript = {
-	  --  {
-    --    lintCommand = "deno lint -",
-    --    lintStdin = true,
-    --    lintIgnoreExitCode = true,
-    --    lintFormats = {"%f:%l:%c: %m"},
-    --    lintSource = "deno",
-	  --    formatCommand = "deno fmt -",
-	  --    formatStdin = true,
-	  --  }
-	  --	
-	  --}
     }
   }
 }
@@ -109,23 +70,24 @@ vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnos
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
---[[
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "‼️", numhl = "LspDiagnosticsDefaultError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "⚠️", numhl = "LspDiagnosticsDefaultWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "❔", numhl = "LspDiagnosticsDefaultInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text = "💡", numhl = "LspDiagnosticsDefaultHint"})
---]]
 
 
 vim.cmd[[autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)]]
 vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync()]]
+
 vim.cmd[[autocmd FileType typescript lua vim.opt.expandtab = true]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.tabstop = 2]]
 vim.cmd[[autocmd FileType typescript lua vim.opt.shiftwidth = 2]]
+
+vim.cmd[[autocmd FileType lua lua vim.opt.expandtab = true]]
+vim.cmd[[autocmd FileType lua lua vim.opt.tabstop = 2]]
+vim.cmd[[autocmd FileType lua lua vim.opt.shiftwidth = 2]]
+
 vim.cmd[[autocmd FileType go lua vim.opt.expandtab = false]]
 vim.cmd[[autocmd FileType go lua vim.opt.smarttab = true]]
 vim.cmd[[autocmd FileType go lua vim.opt.tabstop = 4]]
 vim.cmd[[autocmd FileType go lua vim.opt.shiftwidth = 4]]
+
 vim.cmd[[autocmd FileType python lua vim.opt.expandtab = true]]
 vim.cmd[[autocmd FileType python lua vim.opt.tabstop = 4]]
 vim.cmd[[autocmd FileType python lua vim.opt.shiftwidth = 4]]

@@ -19,6 +19,7 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('nvim-treesitter/playground')
 
   call dein#add('akinsho/nvim-bufferline.lua')
+  
   " Improve movements
   " Vertical Movement
   call dein#add('justinmk/vim-sneak')
@@ -27,15 +28,11 @@ if dein#load_state('$HOME/.cache/dein')
 
   " Colorshemes
   call dein#add('monsonjeremy/onedark.nvim')
-  "call dein#add('sonph/onehalf', {'rtp': 'vim/'})
-  "call dein#add('folke/tokyonight.nvim')
-  "call dein#add('ayu-theme/ayu-vim')
   call dein#add('marko-cerovac/material.nvim')
   call dein#add('projekt0n/github-nvim-theme')
 
   "TODO: define which indent guide plugin to use
   "Indent lines
-  "call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('lukas-reineke/indent-blankline.nvim')
 
   "Comment Code
@@ -60,10 +57,12 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('kyazdani42/nvim-web-devicons')
 
   " Fuzzy finder for vim
-  "call dein#add('camspiers/snap')
   call dein#add('nvim-lua/popup.nvim')
   call dein#add('nvim-lua/plenary.nvim')
   call dein#add('nvim-telescope/telescope.nvim')
+
+  " Project management
+  call dein#add('ahmedkhalf/project.nvim')
 
   " Git stuff
   call dein#add('lewis6991/gitsigns.nvim')
@@ -90,12 +89,7 @@ if dein#load_state('$HOME/.cache/dein')
   " HTML plugins
   "call dein#add('mattn/emmet-vim')
 
-  " Javascript plugins
-  "call dein#add('neomake/neomake')
-  "call dein#add('pangloss/vim-javascript')
-
   " Pair characters plugin
-  " call dein#add('tmsvg/pear-tree')
   call dein#add('windwp/nvim-autopairs')
  
   " Color hexcodes
@@ -121,3 +115,5 @@ lua require('lsp')
 lua require('completion')
 lua require('ntree')
 lua require('nbufferline')
+lua require('project')
+lua require('telescope-nvim')
