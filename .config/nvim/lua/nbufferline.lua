@@ -18,3 +18,13 @@ require("bufferline").setup {
         diagnostics = "nvim_lsp"
     }
 }
+
+vim.api.nvim_set_keymap('n', '<Leader>b1', ':BufferLineGoToBuffer 1<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b2', ':BufferLineGoToBuffer 2<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b3', ':BufferLineGoToBuffer 3<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b4', ':BufferLineGoToBuffer 4<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b5', ':BufferLineGoToBuffer 5<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b6', ':BufferLineGoToBuffer 6<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b7', ':BufferLineGoToBuffer 7<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b8', ':BufferLineGoToBuffer 8<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>b9', ':BufferLineGoToBuffer 9<CR>', {})

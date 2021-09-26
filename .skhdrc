@@ -2,7 +2,7 @@
 f8 : sh ~/Developer/scripts/laptopmode
 f9 : sh ~/Developer/scripts/desktopmode
 
-cmd - return : open -a kitty
+ctrl - return : open -a kitty
 
 # Yabai shortcuts
 # MOD1 = alt + shift

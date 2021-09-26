@@ -22,26 +22,32 @@ end
 
 
 -- Colorsheme and statusline
-
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
-  require('line')
   require('github-theme').setup({
-    themeStyle = 'light',
-    hideInactiveStatusline = true,
-    functionStyle = "italic",
-    darkSidebar = false
+    --theme_style = 'light_default',
+    theme_style = 'dark_default',
+    hide_inactive_statusline = true,
+    function_style = "italic",
+    dark_sidebar = false
   })
 
 else
-  require('line')
+  --require('line')
   require('github-theme').setup({
-    themeStyle = 'dark',
-    hideInactiveStatusline = true,
-    functionStyle = "italic",
-    darkSidebar = false
+    theme_style = 'dark_default',
+    hide_inactive_statusline = true,
+    function_style = "italic",
+    dark_sidebar = false
   })
 
 end
+
+require('lualine').setup {
+  options = {
+    theme = 'github'
+  }
+}
+
 
 -- Auto Pairs
 local npairs = require('nvim-autopairs')
@@ -103,7 +109,7 @@ require('indent_blankline').setup{
     "object",
     "dictionary"
   },
-  filetype_exclude = {"help", "terminal", "fzf", "floaterm"},
+  filetype_exclude = {"help", "terminal", "fzf", "floaterm", "alpha"},
   buftype_exclude = {"terminal"},
  
   --show_trailing_blankline_indent = false,
@@ -162,8 +168,3 @@ vim.g.mkdp_refresh_slow = 1
 vim.api.nvim_set_keymap('n', '<Leader>9', [[<Cmd>lua require('material.functions').change_style('lighter')<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>0', [[<Cmd>lua require('material.functions').change_style('darker')<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>8', [[<Cmd>lua require('material.functions').change_style('deep ocean')<CR>]], { noremap = true, silent = true })
-
-require('todo-comments').setup{}
-require('trouble').setup{}
-require('colorizer').setup()
-require('gitsigns').setup()

@@ -1,8 +1,29 @@
 local lsp = require('lspconfig')
 
-lsp.intelephense.setup{}
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings
+  local opts = { noremap=true, silent=false }
+
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+end
+
+lsp.intelephense.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = on_attach,
+}
 -- For python autocompletion
 lsp.pylsp.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = on_attach,
   settings = {
     pylsp = {
       plugins = {
@@ -14,6 +35,8 @@ lsp.pylsp.setup{
 }
 
 lsp.denols.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = on_attach,
   init_options = {
     enable = true,
     lint = true,
@@ -23,11 +46,18 @@ lsp.denols.setup{
 }
 
 -- Golang
-lsp.gopls.setup{}
+lsp.gopls.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = on_attach,
+}
 
 -- JSON
-lsp.jsonls.setup{}
+lsp.jsonls.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = on_attach,
+}
 
+-- INFO: Not changed for cmp
 -- Emmet
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -45,26 +75,13 @@ if not lsp.emmet_ls then
   }
 end
 
-lsp.emmet_ls.setup{
-  capabilities = capabilities;
-}
 
-lsp.vuels.setup{}
+lsp.vuels.setup{
+  on_attach = on_attach,
+}
 
 -- TODO: organize this code
---[[
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
 
-lsp.html.setup{
-  capabilities = capabilities,
-}
---]]
 
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})

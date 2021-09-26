@@ -40,7 +40,7 @@ alias counter=~/Developer/shell/counter
 alias sp=spotify
 alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
-alias cnvim="nvim $HOME/.config/nvim/init.vim"
+alias cnvim="cd $HOME/.config/nvim && nvim init.lua"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
 alias l="exa --all --long --header --git"
@@ -60,9 +60,10 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-    	kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/dark.conf
+    	kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/dark_default.conf
     else
-    	kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/light.conf
+    	kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/dark_default.conf
+    	#kitty @ set-colors --all --configured ~/.cache/dein/repos/github.com/projekt0n/github-nvim-theme/extras/kitty/light.conf
     fi
 }
 

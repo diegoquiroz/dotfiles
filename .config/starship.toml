@@ -1,6 +1,8 @@
+format = " $all"
+
 [directory]
 format = "🦕 [ $path]($style)[$read_only]($read_only_style) "
-style = "bold cyan"
+style = "bold"
 truncation_length = 8
 truncate_to_repo = false
 
@@ -12,3 +14,6 @@ ignore_base = true
 
 [battery]
 disabled = true
+
+[character]
+format = " $symbol "

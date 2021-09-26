@@ -48,10 +48,3 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
-(package! nyan-mode
-	:recipe (:host github :repo "TeMPOraL/nyan-mode"))
-
-
-(package! org-bullets
-	:recipe (:host github :repo "sabof/org-bullets"))

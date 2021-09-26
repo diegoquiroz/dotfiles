@@ -1,27 +1,26 @@
-require('compe').setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true,
+local cmp = require('cmp')
 
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-    emoji = true;
-  };
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      -- For `vsnip` user.
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    -- For vsnip user.
+    { name = 'vsnip' },
+    { name = 'buffer' },
+  }
 }
 
 local t = function(str)
@@ -58,8 +57,40 @@ _G.s_tab_complete = function()
     end
 end
 
-vim.api.nvim_set_keymap("i", ",,", "compe#confirm('<CR>')", { silent = true, expr = true, noremap = true })
+vim.api.nvim_set_keymap("i", ",,", "cmp.mapping.configm()", { silent = true, expr = true, noremap = true })
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+--vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+--vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+require("tabout").setup({
+  tabkey = "",
+  backwards_tabkey = "",
+})
+
+local function replace_keycodes(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function _G.tab_binding()
+  if vim.fn.pumvisible() ~= 0 then
+    return replace_keycodes("<C-n>")
+  elseif vim.fn["vsnip#available"](1) ~= 0 then
+    return replace_keycodes("<Plug>(vsnip-expand-or-jump)")
+  else
+    return replace_keycodes("<Plug>(Tabout)")
+  end
+end
+
+function _G.s_tab_binding()
+  if vim.fn.pumvisible() ~= 0 then
+    return replace_keycodes("<C-p>")
+  elseif vim.fn["vsnip#jumpable"](-1) ~= 0 then
+    return replace_keycodes("<Plug>(vsnip-jump-prev)")
+  else
+    return replace_keycodes("<Plug>(TaboutBack)")
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_binding()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_binding()", {expr = true})

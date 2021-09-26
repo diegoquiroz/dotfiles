@@ -1,6 +1,4 @@
-
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -23,20 +21,22 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14 :weight 'Medium)
+      doom-variable-pitch-font (font-spec :family "sans" :size 16))
+
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;(setq doom-theme 'doom-nord-light)
-(setq doom-theme 'doom-nord-light)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/org/")
+(setq org-directory "~/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type t)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -55,28 +55,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(setq mac-option-modifier 'meta
-	  mac-right-option-modifier 'none)
-;(setq ns-option-modifier 'none
-;    ns-right-alternate-modifier 'meta)
 
-;;(setq doom-variable-pitch-font (font-spec :family "Noto Sans" :size 13))
-;;(setq doom-font (font-spec :family "Menlo" :size 12))
-(setq treemacs-width 25)
-(setq doom-treemacs-use-generic-icons 'nil)
-(setq doom-themes-treemacs-theme "doom-colors")
+(tool-bar-mode -1)
 
-(setq minimap-minimum-width 10)
-
-
-(use-package nyan-mode
-   :custom
-   (nyan-cat-face-number 4)
-   (nyan-animate-nyancat t)
-   ;:hook
-   ;(doom-modeline-mode . nyan-mode)
-   )
-
-
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq doom-modeline-height 25)
+(set-face-attribute 'mode-line nil :family "Menlo")
+(set-face-attribute 'mode-line-inactive nil :family "Menlo")
