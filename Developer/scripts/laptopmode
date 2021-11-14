@@ -4,5 +4,5 @@ killall MonitorControl
 killall TinkerTool
 open -a /Applications/Setapp/Bartender.app
 open -a /Applications/Magnet.app
-open -a /Applications/Setapp/BetterTouchTool.app
+#open -a /Applications/Setapp/BetterTouchTool.app
 brew services start yabai && yabai -m config layout float

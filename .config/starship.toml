@@ -1,7 +1,7 @@
 format = " $all"
 
 [directory]
-format = "🦕 [ $path]($style)[$read_only]($read_only_style) "
+format = "🦕  [ $path]($style)[$read_only]($read_only_style) "
 style = "bold"
 truncation_length = 8
 truncate_to_repo = false
@@ -10,10 +10,16 @@ truncate_to_repo = false
 style = "bold #dd0b78"
 
 [conda]
-ignore_base = true
+ignore_base = false
 
 [battery]
 disabled = true
 
 [character]
 format = " $symbol "
+
+[docker_context]
+disabled = true
+
+[package]
+disabled = true

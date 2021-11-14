@@ -44,9 +44,9 @@ alt + shift - i : yabai -m window north --resize bottom:0:25 2> /dev/null || yab
 # Display
 cmd + ctrl - return : yabai -m display --focus recent
 
-# Move window to display
-cmd + ctrl - h : yabai -m window --display recent
-cmd + ctrl - l : yabai -m window --display recent
+# Move window to display and focus
+cmd + ctrl - h : yabai -m window --display recent; yabai -m display --focus next
+cmd + ctrl - l : yabai -m window --display recent; yabai -m display --focus next
 
 # Move window to space
 alt + shift + ctrl - 1 : yabai -m window --space 1
@@ -56,3 +56,15 @@ alt + shift + ctrl - 4 : yabai -m window --space 4
 alt + shift + ctrl - 5 : yabai -m window --space 5
 alt + shift + ctrl - 6 : yabai -m window --space 6
 
+
+# Spaces
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+shift + cmd - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
+shift + cmd - k : yabai -m space --destroy
+
+ctrl - right : yabai -m space --focus next
+ctrl - left : yabai -m space --focus prev

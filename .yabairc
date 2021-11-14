@@ -18,6 +18,7 @@ yabai -m config bottom_padding 15
 yabai -m config left_padding 15
 yabai -m config right_padding 15
 yabai -m config window_gap 5
+yabai -m config external_bar all:25:0
 
 #yabai -m config window_topmost on
 #yabai -m config normal_window_opacity 1
