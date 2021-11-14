@@ -1,10 +1,10 @@
-#sudo yabai --load-sa
+sudo yabai --load-sa
 
 # yabai layout settings
 yabai -m config layout bsp
 
 # rules
-yabai -m rule --add app!="^(Safari|Safari Technology Preview|kitty|Emacs|Preview|Pages|Excel|Word|Dash)$" manage=off
+yabai -m rule --add app!="^(Safari|Safari Technology Preview|kitty|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|Slack|zoom.us)$" manage=off
 #yabai -m window --toggle border
 #yabai -m config active_window_border_color "0xFFFFFF00"
 
@@ -19,6 +19,10 @@ yabai -m config left_padding 15
 yabai -m config right_padding 15
 yabai -m config window_gap 5
 
-yabai -m config window_topmost on
-yabai -m config normal_window_opacity 1
+#yabai -m config window_topmost on
+#yabai -m config normal_window_opacity 1
+
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.95
 

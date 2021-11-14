@@ -1,4 +1,4 @@
-function os_command(command)
+  function os_command(command)
   local handle = io.popen(command)
   local result = handle:read('*a')
   handle.close()
@@ -20,21 +20,19 @@ function os_command(command)
   return result
 end
 
-
 -- Colorsheme and statusline
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
   require('github-theme').setup({
-    --theme_style = 'light_default',
-    theme_style = 'dark_default',
+    theme_style = "dark",
     hide_inactive_statusline = true,
     function_style = "italic",
     dark_sidebar = false
   })
 
 else
-  --require('line')
   require('github-theme').setup({
-    theme_style = 'dark_default',
+    theme_style = "dark",
+    -- theme_style = "dark_default",
     hide_inactive_statusline = true,
     function_style = "italic",
     dark_sidebar = false
@@ -48,13 +46,6 @@ require('lualine').setup {
   }
 }
 
-
--- Auto Pairs
-local npairs = require('nvim-autopairs')
-npairs.setup({
-  check_ts = true
-})
-
 -- Treesitter
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
@@ -66,7 +57,9 @@ require('nvim-treesitter.configs').setup {
     'lua',
     'php',
     'rust',
-    'go'
+    'go',
+    'yaml',
+    'toml'
   },
   highlight = {
     enable = true
@@ -77,15 +70,27 @@ require('nvim-treesitter.configs').setup {
     updatetime = 25,
     persist_queries = false,
   },
-  autopairs = { enable = true }
+  autopairs = { enable = true },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true
+  },
 }
 
 
 -- Indent Lines
-vim.opt.listchars = {
-  space = "⋅",
-  eol = "↴",
-}
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("eol:↴")
+
 require('indent_blankline').setup{
   use_treesitter = true,
   space_char_blankline = " ",
@@ -109,8 +114,8 @@ require('indent_blankline').setup{
     "object",
     "dictionary"
   },
-  filetype_exclude = {"help", "terminal", "fzf", "floaterm", "alpha"},
-  buftype_exclude = {"terminal"},
+  filetype_exclude = {"help", "terminal", "fzf", "floaterm", "alpha", "packer", "floatline"},
+  buftype_exclude = {"terminal", "nofile"},
  
   --show_trailing_blankline_indent = false,
 
@@ -153,18 +158,11 @@ vim.g.nvim_ipy_perform_mappings = 0
 vim.api.nvim_set_keymap('', '<c-s>', '<Plug>(IPy-Run)', {silent = true})
 vim.api.nvim_set_keymap('', '<c-d>', '<Plug>(IPy-RunAll)', {silent = true})
 
---vim.g.python3_host_prog = '/usr/local/anaconda3/bin/python3'
---vim.g.python_host_prog = '~/Developer/venvs/neovim2/bin/python'
+-- vim.g.python3_host_prog = '/usr/local/bin/python3'
+-- vim.g.python_host_prog = '/usr/bin/python'
 
 
 --
 -- Markdown Previewer
 --
 vim.g.mkdp_refresh_slow = 1
-
---
--- Theme configs
---
-vim.api.nvim_set_keymap('n', '<Leader>9', [[<Cmd>lua require('material.functions').change_style('lighter')<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>0', [[<Cmd>lua require('material.functions').change_style('darker')<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>8', [[<Cmd>lua require('material.functions').change_style('deep ocean')<CR>]], { noremap = true, silent = true })

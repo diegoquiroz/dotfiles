@@ -45,12 +45,12 @@ set expandtab
 
 "" Tab size
 " 1 tab = 4 spaces
-set tabstop=4
-set shiftwidth=4
+"set tabstop=4
+"set shiftwidth=4
 
 " 1 tab = 2 spaces
-"set tabstop=2
-"set shiftwidth=2
+set tabstop=2
+set shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
@@ -74,14 +74,6 @@ set laststatus=2
 set clipboard=unnamed
 
 let mapleader=" "
-nmap <Leader>q :q<CR>
-nmap <Leader>w :w<CR>
-"nmap <Leader>bk :b#<bar>bd#<CR>
-nmap <Leader>bk :bp<bar>bd #<CR>
-nmap <Leader>bp :bprev<CR>
-nmap <Leader>bn :bnext<CR>
-nmap <Leader>wv :vnew<CR>
-nmap <Leader>wc :close<CR>
 
 
 highlight link htmlTag htmlTagName
