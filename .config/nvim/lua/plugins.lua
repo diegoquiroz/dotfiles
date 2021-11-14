@@ -108,6 +108,7 @@ return require("packer").startup({function()
     ft = {
       'python',
       'javascript',
+      'typescript',
       'php',
       'go',
       'json',

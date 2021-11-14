@@ -78,4 +78,3 @@ let mapleader=" "
 
 highlight link htmlTag htmlTagName
 highlight link htmlEndTag htmlTagName
-

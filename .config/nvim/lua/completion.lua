@@ -1,7 +1,7 @@
 -- Auto Pairs
 local npairs = require('nvim-autopairs')
 npairs.setup({
-  check_ts = true
+  check_ts = true,
 })
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
