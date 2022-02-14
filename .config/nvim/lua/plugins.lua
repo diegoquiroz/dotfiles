@@ -12,12 +12,14 @@ return require("packer").startup({function()
   
   -- Improve movements
   -- Vertical Movement
-  use 'justinmk/vim-sneak'
+  use 'ggandor/lightspeed.nvim'
+  -- use 'justinmk/vim-sneak'
   -- Horizontal movement
   use 'hrsh7th/vim-eft'
 
   -- Colorshemes
   use 'diegoquiroz/github-nvim-theme'
+  use "ellisonleao/gruvbox.nvim"
 
   -- TODO: define which indent guide plugin to use
   -- Indent lines
@@ -27,6 +29,7 @@ return require("packer").startup({function()
   use 'tpope/vim-commentary'
 
   -- Align columns
+  use 'junegunn/vim-easy-align'
   --use 'godlygeek/tabular'
 
   -- Markdown
@@ -108,6 +111,7 @@ return require("packer").startup({function()
     ft = {
       'python',
       'javascript',
+      'javascriptreact',
       'typescript',
       'php',
       'go',
@@ -116,7 +120,8 @@ return require("packer").startup({function()
       'css',
       'vue',
       'lua',
-      'proto'
+      'proto',
+      'terraform'
     },
     requires = {
       'neovim/nvim-lspconfig',
@@ -124,6 +129,12 @@ return require("packer").startup({function()
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
+      'hrsh7th/vim-vsnip-integ',
+      'rafamadriz/friendly-snippets',
+
+      'ray-x/cmp-treesitter',
+      'hrsh7th/cmp-calc',
+
     },
     config = function()
       require('lsp')
@@ -153,6 +164,19 @@ return require("packer").startup({function()
 
   -- Python
   -- Jupyter Notebooks
+  use {
+    'hkupty/iron.nvim',
+    config = function()
+      require('iron').core.set_config {
+        preferred = {
+          python = "ipython"
+        }
+      }
+    end
+  }
+  use 'goerz/jupytext.vim'
+  use 'kana/vim-textobj-user'
+  use 'GCBallesteros/vim-textobj-hydrogen'
   --use 'bfredl/nvim-ipy'
 
   -- HTML plugins
@@ -188,6 +212,13 @@ return require("packer").startup({function()
   }
 
   use 'romgrk/nvim-treesitter-context'
+
+  use {
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('neoscroll').setup()
+    end
+  }
 
   --[[
   NOTE: 

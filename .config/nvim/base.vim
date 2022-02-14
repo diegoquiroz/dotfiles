@@ -24,7 +24,7 @@ set noemoji
 set hidden
 
 " No HIGHLIGHT text when searching
-set nohlsearch
+" set nohlsearch
 
 " I don't like swap files, sorry vim
 set noswapfile
@@ -61,6 +61,7 @@ set splitright
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " TODO: order this stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""
+set inccommand=nosplit
 
 set completeopt=menu,menuone,noselect
 
@@ -76,5 +77,5 @@ set clipboard=unnamed
 let mapleader=" "
 
 
-highlight link htmlTag htmlTagName
-highlight link htmlEndTag htmlTagName
+" highlight link htmlTag htmlTagName
+" highlight link htmlEndTag htmlTagName

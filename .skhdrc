@@ -45,7 +45,7 @@ alt + shift - i : yabai -m window north --resize bottom:0:25 2> /dev/null || yab
 cmd + ctrl - return : yabai -m display --focus recent
 
 # Move window to display and focus
-cmd + ctrl - h : yabai -m window --display recent; yabai -m display --focus next
+cmd + ctrl - h : yabai -m window --display recent; yabai -m display --focus prev
 cmd + ctrl - l : yabai -m window --display recent; yabai -m display --focus next
 
 # Move window to space

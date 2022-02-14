@@ -22,27 +22,30 @@ end
 
 -- Colorsheme and statusline
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
-  require('github-theme').setup({
-    theme_style = "dark",
-    hide_inactive_statusline = true,
-    function_style = "italic",
-    dark_sidebar = false
-  })
-
+   require('github-theme').setup({
+     theme_style = "dark",
+     hide_inactive_statusline = true,
+     function_style = "italic",
+     dark_sidebar = false
+   })
+  
 else
-  require('github-theme').setup({
-    theme_style = "dark",
-    -- theme_style = "dark_default",
-    hide_inactive_statusline = true,
-    function_style = "italic",
-    dark_sidebar = false
-  })
+  -- require('github-theme').setup({
+  --   theme_style = "dark",
+  --   -- theme_style = "dark_default",
+  --   hide_inactive_statusline = true,
+  --   function_style = "italic",
+  --   dark_sidebar = false
+  -- })
+  vim.o.background = "dark" -- or "light" for light mode
+  vim.cmd([[colorscheme gruvbox]])
 
 end
 
 require('lualine').setup {
   options = {
-    theme = 'github'
+    -- theme = 'github'
+    theme = 'gruvbox_dark'
   }
 }
 
@@ -54,12 +57,12 @@ require('nvim-treesitter.configs').setup {
     'typescript',
     'html',
     'css',
-    'lua',
     'php',
     'rust',
     'go',
     'yaml',
-    'toml'
+    'toml',
+    -- 'lua'
   },
   highlight = {
     enable = true

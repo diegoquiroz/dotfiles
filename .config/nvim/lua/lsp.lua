@@ -53,7 +53,7 @@ lsp.denols.setup{
   init_options = {
     enable = true,
     lint = true,
-	format = false,
+    format = false,
     unstable = true
   }
 }
@@ -70,11 +70,31 @@ lsp.jsonls.setup{
   on_attach = on_attach,
 }
 
+lsp.terraformls.setup{
+  on_attach = on_attach,
+}
+
 -- INFO: Not changed for cmp
 -- Emmet
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lsp.vuels.setup{
-  on_attach = on_attach,
+-- if not lsp.emmet_ls then
+--   configs.emmet_ls = {
+--     default_config = {
+--       cmd = {'emmet-ls', '--stdio'};
+--       filetypes = {'html', 'css', 'blade'};
+--       root_dir = function(fname)
+--         return vim.loop.cwd()
+--       end;
+--       settings = {};
+--     };
+--   }
+-- end
+lsp.emmet_ls.setup{
+  filetypes = {"html", "css", "javascriptreact"},
+  capabilities = capabilities,
 }
 
 -- TODO: organize this code
@@ -114,6 +134,7 @@ vim.fn.sign_define("DiagnosticSignHint", {text = "", numhl = "DiagnosticHint"
 
 
 vim.cmd[[autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)]]
+vim.cmd[[autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)]]
 vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync()]]
 
 vim.cmd[[autocmd FileType typescript lua vim.opt.expandtab = true]]

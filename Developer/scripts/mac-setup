@@ -18,11 +18,19 @@ brew install font-jetbrains-mono font-fira-code-nerd-font
 # Languages
 brew install deno node go
 
+# Libraries
+pip install black colorpedia
+
 # LSP
-npm install -g intelephense vscode-langservers-extracted vls
-brew install efm-langserver
+# php, json, vue and emmet
+npm install -g intelephense vscode-langservers-extracted vls emmet-ls
+# python
 pipx install 'python-lsp-server[all]'
+# Golang
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
+# HLS
+brew install hashicorp/tap/terraform-ls
 
 # TODO:
 # Add Dein and Neovim
+brew install neovim

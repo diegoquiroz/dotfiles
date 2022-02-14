@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/Users/diego/.deno/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/Users/diego/.deno/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx docker-compose zsh-vi-mode)
+plugins=(git macos docker-compose zsh-vi-mode)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -40,10 +40,11 @@ alias counter=~/Developer/shell/counter
 alias sp=spotify
 alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
-alias cnvim="cd $HOME/.config/nvim && kitty @ set-tab-title --match title:Nvim config && nvim init.vim"
+alias cnvim="cd $HOME/.config/nvim && kitty @ set-tab-title --match title: Nvim config && nvim init.vim"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
-alias l="exa --all --long --header --git"
+alias l="exa --all --long --header --git --icons"
+alias tree="exa --git --icons -T"
 
 # Platzi stuff
 alias mss="make ssh-dev"
@@ -68,20 +69,20 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-    	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/extras/kitty/dark_default.conf
-    	kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/extras/kitty/dark.conf
+    	kitty @ set-colors --all --configured ~/Desktop/gruvbox-dark.conf
+    	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
     else
-    	kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/extras/kitty/dark.conf
-    	# kitty @ set-colors --all --configured ~/.local/share/nvim/site/pack/packer/start/github-nvim-theme/extras/kitty/dark.conf
+    	kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
+    	# kitty @ set-colors --all --configured ~/.local/share/nvim/site/pack/packer/start/github-nvim-theme/terminal/kitty/github_dark.conf
     fi
 }
 
 if [[ $TERM == 'xterm-kitty' ]]; then
     if [[ $OSTYPE == 'darwin20.0' ]]; then
         checkDarkMode
-        neofetch|lolcat -t --force
+        #neofetch|lolcat -t --force
     else
-    	kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/extras/kitty/dark.conf
+    	kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
     fi
 fi
 
@@ -89,8 +90,6 @@ if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
 # source "${VIRTUAL_ENV}/bin/activate"  # commented out by conda initialize
 fi
 export PATH="/usr/local/opt/llvm/bin:$PATH"
-# Created by `pipx` on 2021-07-20 05:05:38
-export PATH="$PATH:/Users/diego/.local/bin"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -109,3 +108,6 @@ unset __conda_setup
 
 
 eval "$(starship init zsh)"
+export PATH="/usr/local/opt/node@16/bin:$PATH"
+alias gcc=gcc-11
+alias cat=bat

@@ -57,7 +57,3 @@
 ;; they are implemented.
 
 (tool-bar-mode -1)
-
-(setq doom-modeline-height 25)
-(set-face-attribute 'mode-line nil :family "Menlo")
-(set-face-attribute 'mode-line-inactive nil :family "Menlo")
