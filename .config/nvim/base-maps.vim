@@ -28,3 +28,8 @@ smap <expr> <C-p> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab
 
 nmap ]x ctrih/^# %%<CR><CR>
 let g:jupytext_fmt = 'py'
+
+
+" Commands
+:command Format :%!jq .
+:command Unformat :%!jq -c .

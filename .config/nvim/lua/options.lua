@@ -22,14 +22,28 @@ end
 
 -- Colorsheme and statusline
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
-   require('github-theme').setup({
-     theme_style = "dark",
-     hide_inactive_statusline = true,
-     function_style = "italic",
-     dark_sidebar = false
-   })
+  --
+  -- Github theme
+  --
+  -- require('github-theme').setup({
+  --   theme_style = "dark",
+  --   hide_inactive_statusline = true,
+  --   function_style = "italic",
+  --   dark_sidebar = false
+  -- })
+
+  vim.cmd[[colorscheme dracula]]
+
+  --
+  -- gruvbox
+  --
+  -- vim.o.background = "dark" -- or "light" for light mode
+  -- vim.cmd([[colorscheme gruvbox]])
   
 else
+  --
+  -- Github theme
+  --
   -- require('github-theme').setup({
   --   theme_style = "dark",
   --   -- theme_style = "dark_default",
@@ -37,15 +51,21 @@ else
   --   function_style = "italic",
   --   dark_sidebar = false
   -- })
-  vim.o.background = "dark" -- or "light" for light mode
-  vim.cmd([[colorscheme gruvbox]])
+
+  --Dracula
+  vim.cmd[[colorscheme dracula]]
+
+  --
+  -- gruvbox
+  --
+  -- vim.o.background = "dark" -- or "light" for light mode
+  -- vim.cmd([[colorscheme gruvbox]])
 
 end
 
 require('lualine').setup {
   options = {
-    -- theme = 'github'
-    theme = 'gruvbox_dark'
+    theme = 'dracula-nvim'
   }
 }
 
@@ -62,10 +82,14 @@ require('nvim-treesitter.configs').setup {
     'go',
     'yaml',
     'toml',
+    'c',
     -- 'lua'
   },
   highlight = {
     enable = true
+  },
+  indent = {
+    disable = { 'yaml' }
   },
   playground = {
     enable = true,

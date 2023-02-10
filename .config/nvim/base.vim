@@ -59,6 +59,11 @@ set splitbelow
 set splitright
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" Folding
+""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=manual
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO: order this stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""
 set inccommand=nosplit
@@ -79,3 +84,5 @@ let mapleader=" "
 
 " highlight link htmlTag htmlTagName
 " highlight link htmlEndTag htmlTagName
+
+set laststatus=3

@@ -8,7 +8,7 @@ return require("packer").startup({function()
   use 'lewis6991/impatient.nvim'
   use {'wbthomason/packer.nvim'}
 
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons'}
   
   -- Improve movements
   -- Vertical Movement
@@ -18,8 +18,11 @@ return require("packer").startup({function()
   use 'hrsh7th/vim-eft'
 
   -- Colorshemes
-  use 'diegoquiroz/github-nvim-theme'
-  use "ellisonleao/gruvbox.nvim"
+  -- use 'diegoquiroz/github-nvim-theme'
+  use 'projekt0n/github-nvim-theme'
+  use 'ellisonleao/gruvbox.nvim'
+  use 'Mofiqul/dracula.nvim'
+  use ({'rose-pine/neovim', as = 'rose-pine'})
 
   -- TODO: define which indent guide plugin to use
   -- Indent lines
@@ -42,17 +45,12 @@ return require("packer").startup({function()
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-tree').setup {} end
   }
   
   -- Bottom line for Vim
   use {
-    'hoob3rt/lualine.nvim',
+    'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
-  use {
-    'windwp/floatline.nvim',
-    config = function() require('floatline').setup() end
   }
 
   -- Keep correct size of windows
@@ -94,8 +92,32 @@ return require("packer").startup({function()
         current_line_blame_opts = {
           virt_text = true,
           virt_text_pos = 'eol',
-          delay = 50
-        }
+          delay = 50,
+        },
+        on_attach = function(bufnr)
+          local gs = package.loaded.gitsigns
+
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+          -- Actions
+          map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+          map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+          map('n', '<leader>hS', gs.stage_buffer)
+          map('n', '<leader>hu', gs.undo_stage_hunk)
+          map('n', '<leader>hR', gs.reset_buffer)
+          map('n', '<leader>hp', gs.preview_hunk)
+          map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+          map('n', '<leader>tb', gs.toggle_current_line_blame)
+          map('n', '<leader>hd', gs.diffthis)
+          map('n', '<leader>hD', function() gs.diffthis('~') end)
+          map('n', '<leader>td', gs.toggle_deleted)
+
+          -- Text object
+          map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        end
       }
     end
   }
@@ -113,6 +135,7 @@ return require("packer").startup({function()
       'javascript',
       'javascriptreact',
       'typescript',
+      'typescriptreact',
       'php',
       'go',
       'json',
@@ -121,7 +144,9 @@ return require("packer").startup({function()
       'vue',
       'lua',
       'proto',
-      'terraform'
+      'terraform',
+      'c',
+      'rust'
     },
     requires = {
       'neovim/nvim-lspconfig',
@@ -167,9 +192,11 @@ return require("packer").startup({function()
   use {
     'hkupty/iron.nvim',
     config = function()
-      require('iron').core.set_config {
-        preferred = {
-          python = "ipython"
+      require('iron.core').setup {
+        config = {
+          preferred = {
+            python = "ipython"
+          }
         }
       }
     end
@@ -204,6 +231,9 @@ return require("packer").startup({function()
       require('colorizer').setup()
     end
   }
+
+  -- Fold
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
   -- Simple plugins can be specified as strings
   use {

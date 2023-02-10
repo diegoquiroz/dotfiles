@@ -59,12 +59,12 @@ alt + shift + ctrl - 6 : yabai -m window --space 6
 
 # Spaces
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + cmd - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+# shift + cmd - n : yabai -m space --create && \
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+#                   yabai -m window --space "${index}" && \
+#                   yabai -m space --focus "${index}"
 
 shift + cmd - k : yabai -m space --destroy
 
-ctrl - right : yabai -m space --focus next
-ctrl - left : yabai -m space --focus prev
+# ctrl - right : yabai -m space --focus next
+# ctrl - left : yabai -m space --focus prev

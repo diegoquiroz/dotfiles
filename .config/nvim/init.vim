@@ -8,7 +8,7 @@ else
 lua << EOF
 -- Import files
 require('impatient')
---require('plugins')
+require('plugins')
 require('packer_compiled')
 require('options')
 require('ntree')

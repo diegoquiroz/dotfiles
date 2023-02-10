@@ -4,7 +4,7 @@ sudo yabai --load-sa
 yabai -m config layout bsp
 
 # rules
-yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Edge Dev|kitty|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|Slack|zoom.us)$" manage=off
+yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Edge|Google Chrome|kitty|Warp|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|zoom.us|Dash|Code)$" manage=off
 #yabai -m window --toggle border
 #yabai -m config active_window_border_color "0xFFFFFF00"
 
@@ -13,17 +13,19 @@ yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Ed
 
 #yabai windows settings
 #yabai -m window --toggle border
-yabai -m config top_padding 15
-yabai -m config bottom_padding 15
+# yabai -m config top_padding 25
+# yabai -m config bottom_padding 15
 yabai -m config left_padding 15
 yabai -m config right_padding 15
 yabai -m config window_gap 5
-yabai -m config external_bar all:0:25
+# yabai -m config external_bar all:40:10
+yabai -m config external_bar all:10:10
 
 #yabai -m config window_topmost on
 #yabai -m config normal_window_opacity 1
 
 yabai -m config window_opacity off
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.95
+yabai -m config normal_window_opacity 0.90
 
+yabai -m config mouse_follows_focus on

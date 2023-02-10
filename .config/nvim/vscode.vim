@@ -13,7 +13,8 @@ nmap <Leader>ff <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nmap <Leader>fg <Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>
 
 
-nmap <Leader>wv <Cmd>call VSCodeNotify('workbench.action.splitEditorInGroup')<CR>
+" nmap <Leader>wv <Cmd>call VSCodeNotify('workbench.action.splitEditorInGroup')<CR>
+nmap <Leader>wv <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
 nmap <Leader>bp :tabprevious<CR>
 nmap <Leader>bn :tabnext<CR>
 
@@ -21,6 +22,13 @@ nmap <Leader>bk <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 
 nmap <Leader>op <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
 xmap <Leader>op <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+
+nmap <Leader>ot <Cmd>call VSCodeNotify('workbench.action.toggleTerminal')<CR>
+xmap <Leader>ot <Cmd>call VSCodeNotify('workbench.action.toggleTerminal')<CR>
+
+
+nmap <Leader>ot <Cmd>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>
+xmap <Leader>ot <Cmd>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>
 
 " Folding
 " nmap <Leader>ff <Cmd>call VSCodeNotify('notebook.fold')<CR>

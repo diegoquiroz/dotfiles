@@ -10,6 +10,10 @@ telescope.setup{
       '--line-number',
       '--column',
       '--smart-case',
+      '--no-ignore',
+      '--hidden',
+      '--ignore-file',
+      '.gitignore'
     },
     prompt_prefix="🔍 "
   },
@@ -19,6 +23,12 @@ telescope.setup{
         {path = '~/Developer/platzi', max_depth = 2},
         {'~/Developer/platzi/Platzi/django'},
       },
+    },
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",
     }
   }
 }
@@ -26,7 +36,7 @@ telescope.load_extension('fzf')
 telescope.load_extension('project')
 --telescope.load_extension('projects')
 
-vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':lua require("telescope.builtin").find_files()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':lua require("telescope.builtin").find_files({hidden = true})<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require("telescope.builtin").find_files()<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>fg', ':lua require("telescope.builtin").live_grep()<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>bb', ':lua require("telescope.builtin").buffers()<CR>', {})
