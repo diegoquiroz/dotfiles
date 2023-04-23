@@ -4,7 +4,7 @@ return {
   {
     'akinsho/bufferline.nvim',
     version = 'v2.*',
-    dependencies = 'kyazdani42/nvim-web-devicons'
+    dependencies = 'nvim-tree/nvim-web-devicons'
   },
   
   -- Improve movements
@@ -37,7 +37,7 @@ return {
   -- Bottom line for Vim
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = {'kyazdani42/nvim-web-devicons', lazy = true}
+    dependencies = {'nvim-tree/nvim-web-devicons', lazy = true}
   },
 
   -- Keep correct size of windows
@@ -75,7 +75,7 @@ return {
   -- Cool error/diagnostics list
   {
     "folke/trouble.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("trouble").setup{}
     end
@@ -93,9 +93,12 @@ return {
 
   -- HTML plugins
   --use 'mattn/emmet-vim'
+  -- Pair HTML tags
+  'windwp/nvim-ts-autotag',
 
   -- Pair characters plugin
   'windwp/nvim-autopairs',
+
   -- TODO: add configs for this
   -- use {
   --   'abecodes/tabout.nvim',
@@ -121,11 +124,7 @@ return {
   {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
 
   -- Simple plugins can be specified as strings
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate'
-  },
-
+  
   'romgrk/nvim-treesitter-context',
 
   {

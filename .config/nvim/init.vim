@@ -1,7 +1,6 @@
 if exists('g:vscode')
   source ~/.config/nvim/vscode.vim
 else
-
   source ~/.config/nvim/base.vim
   source ~/.config/nvim/base-maps.vim
 
@@ -25,7 +24,7 @@ require('lazy').setup('plugins')
 
 -- Import files
 require('options')
-require('ntree')
+--require('ntree')
 require('nbufferline')
 require('telescope-nvim')
 EOF
