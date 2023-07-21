@@ -4,9 +4,9 @@ sudo yabai --load-sa
 yabai -m config layout bsp
 
 # rules
-yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Edge|Google Chrome|kitty|Warp|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|zoom.us|Dash|Code)$" manage=off
+yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Edge|Google Chrome|kitty|Warp|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|zoom.us|Dash|Code|DataGrip)$" manage=off
 #yabai -m window --toggle border
-#yabai -m config active_window_border_color "0xFFFFFF00"
+yabai -m config active_window_border_color "0xFFFFFF00"
 
 #yabai -m config --space 2 layout bsp
 #yabai -m config --space 3 layout bsp

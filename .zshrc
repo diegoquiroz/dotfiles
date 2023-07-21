@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/Users/diego/.deno/bin:$PATH
+export PATH=${HOME}/.krew/bin:$HOME/bin:/Users/diego/.deno/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -45,7 +45,11 @@ alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
 alias l="exa --all --long --header --git --icons"
 alias tree="exa --git --icons -T"
-alias k='kubectl'
+alias k="kubectl"
+alias pn="pnpm"
+
+alias git="hub"
+alias gwa="git worktree add"
 
 # Platzi stuff
 alias mss="make ssh-dev"
@@ -60,6 +64,11 @@ alias landings-hasura="cd $HOME/Developer/platzi/MS-Landings-Hasura && kitty @ s
 alias landings="cd $HOME/Developer/platzi/MS-Landings && kitty @ set-tab-title MS-Landings"
 alias kraven="cd $HOME/Developer/platzi/MS-Kraven && kitty @ set-tab-title MS-Kraven"
 
+# Bekka stuff
+alias bekka="cd $HOME/Developer/bekka/microservices && kitty @ set-tab-title Bekka"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+# Leadsales stuff
 alias services="cd $HOME/Developer/leadsales/services && kitty @ set-tab-title LS Services"
 alias integrations="cd $HOME/Developer/leadsales/leadsales-integrations && kitty @ set-tab-title LS Integrations"
 alias lsfront="cd $HOME/Developer/leadsales/leadsales && kitty @ set-tab-title LS Front"
@@ -80,13 +89,19 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
-    	# kitty @ set-colors --all --configured ~/.config/kitty/gruvbox-dark.conf
-    	kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
+      # Night
+
+    	kitty @ set-colors --all --configured ~/.config/kitty/gruvbox-dark.conf
+    	# kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
+    	# kitty @ set-colors --all --configured ~/Developer/github/github-theme-contrib/kitty/github_dark_default.conf
     	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
     else
+      # Day
+
+      kitty @ set-colors --all --configured ~/Developer/forks/kitty-themes/themes/gruvbox_light.conf
     	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
-    	# kitty @ set-colors --all --configured ~/.config/kitty/gruvbox-dark.conf
-    	kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
+    	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_light.conf
+    	# kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
     fi
 }
 
@@ -127,10 +142,21 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-eval "$(starship init zsh)"
 export PATH="/usr/local/opt/node@16/bin:$PATH"
 # alias gcc=gcc-11
 
 # Created by `pipx` on 2022-07-03 22:48:01
 export PATH="$PATH:/Users/diego/.local/bin"
+
+# pnpm
+export PNPM_HOME="/Users/diego/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export GITHUB_TOKEN="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"
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"

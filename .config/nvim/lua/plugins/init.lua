@@ -6,12 +6,11 @@ return {
     version = 'v2.*',
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
-  
+
+
   -- Improve movements
-  -- Vertical Movement
-  'ggandor/lightspeed.nvim',
-  -- Horizontal movement
-  'hrsh7th/vim-eft',
+  -- Vertical & Horizontal Movement
+  --'folke/flash.nvim',
 
   -- Colorshemes
   -- use 'diegoquiroz/github-nvim-theme'
@@ -41,12 +40,12 @@ return {
   },
 
   -- Keep correct size of windows
-  -- {
-  --   "kwkarlwang/bufresize.nvim",
-  --   config = function()
-  --       -- require("bufresize").setup()
-  --   end
-  -- },
+  {
+    "kwkarlwang/bufresize.nvim",
+    config = function()
+        require("bufresize").setup()
+    end
+  },
 
   -- Login screen
   -- use {
@@ -97,7 +96,11 @@ return {
   'windwp/nvim-ts-autotag',
 
   -- Pair characters plugin
-  'windwp/nvim-autopairs',
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}
+  },
 
   -- TODO: add configs for this
   -- use {

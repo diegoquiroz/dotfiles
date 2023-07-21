@@ -22,9 +22,7 @@ end
 
 -- Colorsheme and statusline
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
-  --
   -- Github theme
-  --
   -- require('github-theme').setup({
   --   theme_style = "dark",
   --   hide_inactive_statusline = true,
@@ -32,18 +30,15 @@ if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g A
   --   dark_sidebar = false
   -- })
 
-  vim.cmd[[colorscheme dracula]]
+  -- Dracula
+  -- vim.cmd[[colorscheme dracula]]
 
-  --
   -- gruvbox
-  --
-  -- vim.o.background = "dark" -- or "light" for light mode
-  -- vim.cmd([[colorscheme gruvbox]])
+  vim.o.background = "light"
+  vim.cmd([[colorscheme gruvbox]])
   
 else
-  --
   -- Github theme
-  --
   -- require('github-theme').setup({
   --   theme_style = "dark",
   --   -- theme_style = "dark_default",
@@ -53,51 +48,20 @@ else
   -- })
 
   --Dracula
-  vim.cmd[[colorscheme dracula]]
+  -- vim.cmd[[colorscheme dracula]]
 
-  --
   -- gruvbox
-  --
-  -- vim.o.background = "dark" -- or "light" for light mode
-  -- vim.cmd([[colorscheme gruvbox]])
+  vim.o.background = "dark"
+  vim.cmd([[colorscheme gruvbox]])
 
 end
 
 require('lualine').setup {
   options = {
-    theme = 'dracula-nvim'
+    -- theme = 'dracula-nvim'
+    theme = 'gruvbox'
   }
 }
-
-
-
---
--- Sneak, plugin like easy motion
---
-vim.api.nvim_set_var('sneak#label', 1)
-
-
---[[
-Enhanced F and T
---]]
-vim.api.nvim_set_keymap("n", ";", "<Plug>(eft-repeat)", {})
-vim.api.nvim_set_keymap("x", ";", "<Plug>(eft-repeat)", {})
-
-vim.api.nvim_set_keymap("n", "f", "<Plug>(eft-f)", {})
-vim.api.nvim_set_keymap("x", "f", "<Plug>(eft-f)", {})
-vim.api.nvim_set_keymap("o", "f", "<Plug>(eft-f)", {})
-vim.api.nvim_set_keymap("n", "F", "<Plug>(eft-F)", {})
-vim.api.nvim_set_keymap("x", "F", "<Plug>(eft-F)", {})
-vim.api.nvim_set_keymap("o", "F", "<Plug>(eft-F)", {})
-
-vim.api.nvim_set_keymap("n", "t", "<Plug>(eft-t)", {})
-vim.api.nvim_set_keymap("x", "t", "<Plug>(eft-t)", {})
-vim.api.nvim_set_keymap("o", "t", "<Plug>(eft-t)", {})
-vim.api.nvim_set_keymap("n", "T", "<Plug>(eft-T)", {})
-vim.api.nvim_set_keymap("x", "T", "<Plug>(eft-T)", {})
-vim.api.nvim_set_keymap("o", "T", "<Plug>(eft-T)", {})
-
-
 
 --[[
 IPython plugin

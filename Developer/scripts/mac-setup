@@ -4,7 +4,7 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Tools
-brew install starship neofetch lolcat rg fd fzf exa pipx
+brew install starship neofetch lolcat rg fd fzf exa pipx zoxide
 
 # Terminal emulator
 brew install --cask kitty
@@ -21,19 +21,4 @@ brew install deno node go
 # Libraries
 pip install black colorpedia
 
-# LSP
-# php, json, vue and emmet
-npm install -g intelephense vscode-langservers-extracted vls emmet-ls
-npm install -g typescript typescript-language-server
-# python
-pipx install 'python-lsp-server[all]'
-# Golang
-GO111MODULE=on go get golang.org/x/tools/gopls@latest
-# HLS
-brew install hashicorp/tap/terraform-ls
-#Rust
-brew install rust-analyzer
-
-# TODO:
-# Add Dein and Neovim
 brew install neovim

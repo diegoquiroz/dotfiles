@@ -6,4 +6,4 @@ killall Übersicht
 # open -a /Applications/Setapp/Bartender.app
 open -a /Applications/Magnet.app
 #open -a /Applications/Setapp/BetterTouchTool.app
-brew services start yabai && yabai -m config layout float
+brew services stop yabai && yabai -m config layout float
