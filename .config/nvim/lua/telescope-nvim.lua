@@ -20,8 +20,6 @@ telescope.setup{
   extensions = {
     project = {
       base_dirs = {
-        {path = '~/Developer/platzi', max_depth = 2},
-        {'~/Developer/platzi/Platzi/django'},
       },
     },
     fzf = {
