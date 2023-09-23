@@ -1,22 +1,6 @@
 return {
-
-  -- Icons
-  {
-    'akinsho/bufferline.nvim',
-    version = 'v2.*',
-    dependencies = 'nvim-tree/nvim-web-devicons'
-  },
-
-
-  -- Improve movements
-  -- Vertical & Horizontal Movement
-  --'folke/flash.nvim',
-
   -- Colorshemes
-  -- use 'diegoquiroz/github-nvim-theme'
-  'projekt0n/github-nvim-theme',
   'ellisonleao/gruvbox.nvim',
-  'Mofiqul/dracula.nvim',
 
 
   -- Comment Code
@@ -32,7 +16,7 @@ return {
     ft = 'markdown',
     build = 'cd app && yarn install'
   },
-  
+
   -- Bottom line for Vim
   {
     'nvim-lualine/lualine.nvim',
@@ -46,15 +30,6 @@ return {
         require("bufresize").setup()
     end
   },
-
-  -- Login screen
-  -- use {
-  --   'goolord/alpha-nvim',
-  --   dependencies = { 'kyazdani42/nvim-web-devicons' },
-  --   config = function ()
-  --       require('alpha').setup(require('alpha.themes.dashboard').opts)
-  --   end
-  -- }
 
   -- Fuzzy finder for vim
   --use 'nvim-lua/popup.nvim'
@@ -115,7 +90,7 @@ return {
   --   wants = {'nvim-treesitter'}, -- or require if not used so far
   --   after = {'nvim-cmp'} 
   -- }
- 
+
   -- Color hexcodes
   {'norcalli/nvim-colorizer.lua',
     config = function()
@@ -124,18 +99,7 @@ return {
   },
 
   -- Fold
-  {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
-
-  -- Simple plugins can be specified as strings
-  
-  'romgrk/nvim-treesitter-context',
-
-  {
-    'karb94/neoscroll.nvim',
-    config = function()
-      require('neoscroll').setup()
-    end
-  },
+  -- {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
 
   --[[
   NOTE: 
@@ -143,7 +107,6 @@ return {
   -- Load on specific commands
   --]]
   {'tweekmonster/startuptime.vim', lazy = true, cmd = {'Start'}},
-  {'nvim-treesitter/playground', lazy = true, cmd = {'Playground'}},
 
 
 }

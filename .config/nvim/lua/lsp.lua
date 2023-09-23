@@ -19,13 +19,13 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.ensure_installed({
-  'lua_ls',
   'tsserver',
   'eslint',
   'rust_analyzer',
   'emmet_ls',
   'tailwindcss',
-  'pylsp'
+  'pylsp',
+  'lua_ls',
 })
 
 -- cmp settings

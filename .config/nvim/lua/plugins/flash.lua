@@ -1,4 +1,6 @@
 return {
+  -- Improve movements
+  -- Vertical & Horizontal Movement
   'folke/flash.nvim',
   event = "VeryLazy",
   ---@type Flash.Config

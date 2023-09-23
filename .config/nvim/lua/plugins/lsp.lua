@@ -19,7 +19,6 @@ return {
     },
     config = function()
       require('lsp')
-      require('completion')
     end
   }
 }

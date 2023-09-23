@@ -25,7 +25,6 @@ require('lazy').setup('plugins')
 -- Import files
 require('options')
 --require('ntree')
-require('nbufferline')
 require('telescope-nvim')
 EOF
 endif

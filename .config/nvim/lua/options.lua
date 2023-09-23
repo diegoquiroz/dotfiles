@@ -1,4 +1,4 @@
-  function os_command(command)
+function os_command(command)
   local handle = io.popen(command)
   local result = handle:read('*a')
   handle.close()

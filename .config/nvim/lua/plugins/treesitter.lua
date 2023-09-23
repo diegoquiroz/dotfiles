@@ -1,11 +1,16 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-  config = function()
-    require('nvim-treesitter.configs').setup {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    version = false,
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSUpdateSync" },
+    ---@type TSConfig
+    opts = {
       ensure_installed = {
         'python',
-        'javascript',
         'typescript',
+        'javascript',
         'html',
         'css',
         'php',
@@ -21,10 +26,11 @@ return {
         enable = true
       },
       indent = {
-        disable = { 'yaml' }
+        -- disable = { 'yaml' },
+        enable = true
       },
       playground = {
-        enable = true,
+        enable = false,
         updatetime = 25,
         persist_queries = false,
       },
@@ -39,6 +45,23 @@ return {
           node_decremental = "grm",
         },
       }
-    }
-  end
+    },
+    config = function (_, opts)
+      if type(opts.ensure_installed) == "table" then
+        ---@type table<string, boolean>
+        local added = {}
+        opts.ensure_installed = vim.tbl_filter(function(lang)
+          if added[lang] then
+            return false
+          end
+          added[lang] = true
+          return true
+        end, opts.ensure_installed)
+      end
+      require("nvim-treesitter.configs").setup(opts)
+    end
+  },
+  {
+    'romgrk/nvim-treesitter-context'
+  }
 }
