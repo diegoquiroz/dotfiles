@@ -1,10 +1,7 @@
 #! /bin/bash
 
-xcode-select --install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 # Tools
-brew install starship neofetch lolcat rg fd fzf exa pipx zoxide
+brew install starship neofetch lolcat rg fd fzf eza pipx zoxide hub
 
 # Terminal emulator
 brew install --cask kitty
@@ -16,7 +13,8 @@ brew tap homebrew/cask-fonts
 brew install font-jetbrains-mono font-fira-code-nerd-font
 
 # Languages
-brew install deno node go
+brew install go
+brew install asdf
 
 # Libraries
 pip install black colorpedia

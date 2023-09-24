@@ -43,8 +43,8 @@ alias preview="qlmanage -p"
 alias cnvim="cd $HOME/.config/nvim && kitty @ set-tab-title --match title: Nvim config && nvim init.vim"
 alias laptopmode="brew services stop yabai"
 alias desktopmode="brew services start yabai"
-alias l="exa --all --long --header --git --icons"
-alias tree="exa --git --icons -T"
+alias l="eza --all --long --header --git --icons"
+alias tree="eza --git --icons -T"
 alias k="kubectl"
 alias pn="pnpm"
 
@@ -98,7 +98,7 @@ function checkDarkMode() {
     else
       # Day
 
-      kitty @ set-colors --all --configured ~/Developer/forks/kitty-themes/themes/gruvbox_light.conf
+    	kitty @ set-colors --all --configured ~/.config/kitty/gruvbox-dark.conf
     	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
     	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_light.conf
     	# kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
@@ -106,7 +106,7 @@ function checkDarkMode() {
 }
 
 if [[ $TERM == 'xterm-kitty' ]]; then
-    if [[ $OSTYPE == 'darwin22.0' ]]; then
+    if [[ $OSTYPE == 'darwin23.0' ]]; then
         checkDarkMode
         neofetch|lolcat -t --force
     else
@@ -168,3 +168,5 @@ export PATH="/Users/diego/Library/Application Support/Herd/bin/":$PATH
 
 # Herd injected PHP 8.2 configuration.
 export HERD_PHP_82_INI_SCAN_DIR="/Users/diego/Library/Application Support/Herd/config/php/82/"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
