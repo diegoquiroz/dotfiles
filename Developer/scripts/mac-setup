@@ -2,6 +2,7 @@
 
 # Tools
 brew install starship neofetch lolcat rg fd fzf eza pipx zoxide hub
+$(brew --prefix)/opt/fzf/install
 
 # Terminal emulator
 brew install --cask kitty

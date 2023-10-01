@@ -22,34 +22,14 @@ end
 
 -- Colorsheme and statusline
 if (vim.fn['has']('macunix') == 1 and os_command('2>/dev/null defaults read -g AppleInterfaceStyle') == '') then
-  -- Github theme
-  -- require('github-theme').setup({
-  --   theme_style = "dark",
-  --   hide_inactive_statusline = true,
-  --   function_style = "italic",
-  --   dark_sidebar = false
-  -- })
-
-  -- Dracula
-  -- vim.cmd[[colorscheme dracula]]
-
   -- gruvbox
+  require('gruvbox').setup({
+    contrast = 'soft'
+  })
   vim.o.background = "light"
   vim.cmd([[colorscheme gruvbox]])
   
 else
-  -- Github theme
-  -- require('github-theme').setup({
-  --   theme_style = "dark",
-  --   -- theme_style = "dark_default",
-  --   hide_inactive_statusline = true,
-  --   function_style = "italic",
-  --   dark_sidebar = false
-  -- })
-
-  --Dracula
-  -- vim.cmd[[colorscheme dracula]]
-
   -- gruvbox
   vim.o.background = "dark"
   vim.cmd([[colorscheme gruvbox]])

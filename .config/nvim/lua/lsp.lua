@@ -1,7 +1,7 @@
 local lsp = require('lsp-zero')
 
-lsp.preset('recommended')
-lsp.nvim_workspace()
+-- lsp.preset('recommended')
+-- lsp.nvim_workspace()
 
 lsp.on_attach(function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -18,46 +18,53 @@ lsp.on_attach(function(client, bufnr)
   })
 end)
 
-lsp.ensure_installed({
-  'tsserver',
-  'eslint',
-  'rust_analyzer',
-  'emmet_ls',
-  'tailwindcss',
-  'pylsp',
-  'lua_ls',
+require('mason').setup({})
+
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'tsserver',
+    'eslint',
+    'rust_analyzer',
+    'emmet_ls',
+    'tailwindcss',
+    'pylsp',
+    'lua_ls',
+  },
+  handlers = {
+    lsp.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
 })
 
 -- cmp settings
-
 local cmp = require('cmp')
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  ['<C-Space>'] = cmp.mapping.complete()
-})
+local cmp_format = lsp.cmp_format()
+local cmp_action = require('lsp-zero').cmp_action()
+
 
 cmp.setup({
-  sources = {
-    -- {name = 'copilot'},
-    {name = 'nvim_lsp'},
-  },
-  mapping = {
-    ['<CR>'] = cmp.mapping.confirm({
-      -- documentation says this is important.
-      -- I don't know why.
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
-    })
-  }
+--   sources = {
+--     -- {name = 'copilot'},
+--     {name = 'nvim_lsp'},
+--   },
+  formatting = cmp_format,
+  mapping = cmp.mapping.preset.insert({
+    -- scroll up and down the documentation window
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    -- Supertab
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete()
+
+  }),
 })
 
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
-
-
-lsp.setup()
 
 -- TODO: organize this code
 
@@ -98,7 +105,7 @@ vim.fn.sign_define("DiagnosticSignHint", {text = "", numhl = "DiagnosticHint"
 -- vim.cmd[[autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)]]
 -- vim.cmd[[autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)]]
 vim.cmd[[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
--- vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync()]]
+vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.format({async=true})]]
 
 -- Spaces size 2
 vim.cmd[[autocmd FileType typescript lua vim.opt.expandtab = true]]

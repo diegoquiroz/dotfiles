@@ -3,13 +3,14 @@
 --
 return {
   'lukas-reineke/indent-blankline.nvim',
-  event = "BufReadPre",
+  -- event = 'BufReadPre',
+  main = 'ibl',
   config = function()
     vim.opt.list = true
     vim.opt.listchars:append("space:⋅")
     -- vim.opt.listchars:append("eol:↴")
 
-    require('indent_blankline').setup{
+    require('ibl').setup{
       use_treesitter = true,
       space_char_blankline = " ",
       show_end_of_line = true,

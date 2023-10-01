@@ -90,18 +90,10 @@ alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
       # Night
-
-    	kitty @ set-colors --all --configured ~/.config/kitty/gruvbox-dark.conf
-    	# kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
-    	# kitty @ set-colors --all --configured ~/Developer/github/github-theme-contrib/kitty/github_dark_default.conf
-    	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
+      kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_dark.conf
     else
       # Day
-
-    	kitty @ set-colors --all --configured ~/.config/kitty/gruvbox-dark.conf
-    	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
-    	# kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_light.conf
-    	# kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
+      kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_light_soft.conf
     fi
 }
 
