@@ -16,6 +16,7 @@ brew install font-jetbrains-mono font-fira-code-nerd-font
 # Languages
 brew install go
 brew install asdf
+brew install julia luarocks
 
 # Libraries
 pip install black colorpedia

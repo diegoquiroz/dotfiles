@@ -28,4 +28,4 @@ yabai -m config window_opacity off
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.90
 
-yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus off
