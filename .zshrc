@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos docker-compose zsh-vi-mode)
+plugins=(git macos docker-compose zsh-vi-mode zsh-diff-so-fancy)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -50,6 +50,8 @@ alias pn="pnpm"
 
 alias git="hub"
 alias gwa="git worktree add"
+
+alias ssh="TERM=xterm-color ssh
 
 # Platzi stuff
 alias mss="make ssh-dev"
@@ -93,7 +95,8 @@ function checkDarkMode() {
       kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_dark.conf
     else
       # Day
-      kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_light_soft.conf
+      kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_dark.conf
+      # kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_light_soft.conf
     fi
 }
 
@@ -148,7 +151,13 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export GITHUB_TOKEN="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"
+#
+# Diff so fancy
+#
+# Configure git to use d-s-f for *all* diff operations
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+# Configure git to use d-s-f for `git add --patch`
+git config --global interactive.diffFilter "diff-so-fancy --patch"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
