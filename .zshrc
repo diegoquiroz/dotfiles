@@ -40,41 +40,21 @@ alias counter=~/Developer/shell/counter
 alias sp=spotify
 alias doom=~/.emacs.d/bin/doom
 alias preview="qlmanage -p"
-alias cnvim="cd $HOME/.config/nvim && kitty @ set-tab-title --match title: Nvim config && nvim init.vim"
-alias laptopmode="brew services stop yabai"
-alias desktopmode="brew services start yabai"
+alias cnvim="cd $HOME/.config/nvim && kitty @ set-tab-title --match title: Nvim config && nvim init.lua"
+alias laptopmode="yabai --stop-service"
+alias desktopmode="yabai --start-service"
 alias l="eza --all --long --header --git --icons"
-alias tree="eza --git --icons -T"
+alias tree="eza --git --icons -T --git-ignore"
 alias k="kubectl"
 alias pn="pnpm"
 
 alias git="hub"
 alias gwa="git worktree add"
 
-alias ssh="TERM=xterm-color ssh
+alias ssh="TERM=xterm-color ssh"
 
-# Platzi stuff
-alias mss="make ssh-dev"
-alias mst="make start-dev"
-alias mstop="make stop-dev"
-# alias core="conda activate core38 && cd $HOME/Developer/platzi/Platzi/django && kitty @ set-tab-title Platzi Core"
-# alias landings-hasura="conda activate core38 && cd $HOME/Developer/platzi/MS-Landings-Hasura && kitty @ set-tab-title MS-Landings-Hasura"
-# alias landings="conda activate core38 && cd $HOME/Developer/platzi/MS-Landings && kitty @ set-tab-title MS-Landings"
-# alias kraven="conda activate core38 && cd $HOME/Developer/platzi/MS-Kraven && kitty @ set-tab-title MS-Kraven"
-alias core="cd $HOME/Developer/platzi/Platzi/django && kitty @ set-tab-title Platzi Core"
-alias landings-hasura="cd $HOME/Developer/platzi/MS-Landings-Hasura && kitty @ set-tab-title MS-Landings-Hasura"
-alias landings="cd $HOME/Developer/platzi/MS-Landings && kitty @ set-tab-title MS-Landings"
-alias kraven="cd $HOME/Developer/platzi/MS-Kraven && kitty @ set-tab-title MS-Kraven"
-
-# Bekka stuff
-alias bekka="cd $HOME/Developer/bekka/microservices && kitty @ set-tab-title Bekka"
+# Laravel stuff
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
-
-# Leadsales stuff
-alias services="cd $HOME/Developer/leadsales/services && kitty @ set-tab-title LS Services"
-alias integrations="cd $HOME/Developer/leadsales/leadsales-integrations && kitty @ set-tab-title LS Integrations"
-alias lsfront="cd $HOME/Developer/leadsales/leadsales && kitty @ set-tab-title LS Front"
-alias wiki="cd $HOME/Developer/leadsales/wiki && kitty @ set-tab-title LS Wiki"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export EDITOR='nvim'
@@ -93,15 +73,16 @@ function checkDarkMode() {
     if [[ ( $(darkMode) =~ 'Dark' ) ]]; then
       # Night
       kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_dark.conf
+      # kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
     else
       # Day
-      kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_dark.conf
-      # kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_light_soft.conf
+      # kitty @ set-colors --all --configured ~/.config/kitty/themes/dracula.conf
+      kitty @ set-colors --all --configured ~/Developer/forks/kitty_gruvbox_theme/gruvbox_light.conf
     fi
 }
 
 if [[ $TERM == 'xterm-kitty' ]]; then
-    if [[ $OSTYPE == 'darwin23.0' ]]; then
+    if [[ $OSTYPE == 'darwin24.0' ]]; then
         checkDarkMode
         neofetch|lolcat -t --force
     else
@@ -113,13 +94,6 @@ if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
 # source "${VIRTUAL_ENV}/bin/activate"  # commented out by conda initialize
 fi
 export PATH="/usr/local/opt/llvm/bin:$PATH"
-
-
-# NVM stuff
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 
 # >>> conda initialize >>>
@@ -137,7 +111,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH="/usr/local/opt/node@16/bin:$PATH"
 # alias gcc=gcc-11
 
 # Created by `pipx` on 2022-07-03 22:48:01
@@ -151,6 +124,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# libpq (postgres) stuff
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+
 #
 # Diff so fancy
 #
@@ -159,15 +137,10 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 # Configure git to use d-s-f for `git add --patch`
 git config --global interactive.diffFilter "diff-so-fancy --patch"
 
+# asdf (version manager)
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# asdf end
+
+source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-
-
-# Herd injected PHP binary.
-export PATH="/Users/diego/Library/Application Support/Herd/bin/":$PATH
-
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/diego/Library/Application Support/Herd/config/php/82/"
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh

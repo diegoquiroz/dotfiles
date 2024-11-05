@@ -1,31 +1,49 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 # yabai layout settings
 yabai -m config layout bsp
 
 # rules
-yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Edge|Google Chrome|kitty|Warp|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|zoom.us|Dash|Code|DataGrip)$" manage=off
-#yabai -m window --toggle border
-yabai -m config active_window_border_color "0xFFFFFF00"
+yabai -m rule --add app=".*" sub-layer=normal
+yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Edge|Google Chrome|kitty|Warp|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|Cursor|zoom.us|Code|DataGrip)$" manage=off
+# yabai -m window --toggle border
+# yabai -m config window_border on
+# yabai -m config window_border_width 2
+# yabai -m config active_window_border_color 0xff775759
 
 #yabai -m config --space 2 layout bsp
 #yabai -m config --space 3 layout bsp
 
 #yabai windows settings
 #yabai -m window --toggle border
-# yabai -m config top_padding 25
-# yabai -m config bottom_padding 15
+yabai -m config top_padding 10
+yabai -m config bottom_padding 10
 yabai -m config left_padding 15
 yabai -m config right_padding 15
-yabai -m config window_gap 5
+yabai -m config window_gap 8
 # yabai -m config external_bar all:40:10
-yabai -m config external_bar all:10:10
+# yabai -m config external_bar all:10:10
 
 #yabai -m config window_topmost on
 #yabai -m config normal_window_opacity 1
 
-yabai -m config window_opacity off
+yabai -m config window_shadow float
+
+yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.90
+yabai -m config normal_window_opacity 0.95
+
 
 yabai -m config mouse_follows_focus on
+
+# JankyBorders
+borders active_color=0xfffabd2f width=8.0 &
+
+# Auto Padding and stack
+yabai -m config auto_padding on \
+                auto_padding_min_aspect 2.3 \
+                auto_padding_width 1150 \
+                auto_balance on \
+                mouse_drop_action stack
+                # auto_padding_height 1400 \

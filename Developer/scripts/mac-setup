@@ -1,24 +1,56 @@
 #! /bin/bash
 
-# Tools
-brew install starship neofetch lolcat rg fd fzf eza pipx zoxide hub
-$(brew --prefix)/opt/fzf/install
-
-# Terminal emulator
-brew install --cask kitty
-brew install koekeishiya/formulae/yabai
+#
+# => Window management & shortcuts
+#
+brew install --cask hammerspoon
 brew install koekeishiya/formulae/skhd
+brew install FelixKratz/formulae/borders
+brew install diegoquiroz/formulae/dyabai --head
+codesign -fs 'yabai-cert' $(brew --prefix yabai)/bin/yabai
 
-# Fonts
+echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
+
+#
+# => Fonts
+#
 brew tap homebrew/cask-fonts
 brew install font-jetbrains-mono font-fira-code-nerd-font
 
-# Languages
-brew install go
-brew install asdf
-brew install julia luarocks
+#
+# => Languages
+#
+brew install go \
+  asdf \
+  julia luarocks
 
-# Libraries
-pip install black colorpedia
+#
+# => Developer tools
+#
+brew install neovim lazygit colima docker-buildx docker-compose
+colima start --mount-type virtiofs --vm-type vz
+colima stop
+mkdir -p ~/.docker/cli-plugins &&
+  ln -sfn $(which docker-buildx) ~/.docker/cli-plugins/docker-buildx &&
+  ln -sfn $(which docker-compose) ~/.docker/cli-plugins/docker-compose
 
-brew install neovim
+#
+# => Various Tools
+#
+pipx install colorpedia
+brew install starship neofetch lolcat rg fd fzf eza pipx zoxide hub
+$(brew --prefix)/opt/fzf/install
+
+#
+# => Apps
+#
+brew install --cask \
+  kitty \
+  cursor \
+  google-chrome \
+  spotify \
+  figma \
+  zoom \
+  datagrip \
+  ukelele \
+  lunar

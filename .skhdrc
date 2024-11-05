@@ -2,7 +2,7 @@
 f8 : sh ~/Developer/scripts/laptopmode
 f9 : sh ~/Developer/scripts/desktopmode
 
-ctrl - return : open -a kitty
+# ctrl - return : open -a kitty
 
 # Yabai shortcuts
 # MOD1 = alt + shift
@@ -16,10 +16,10 @@ ctrl - return : open -a kitty
 ####################
 
 #Focus
-alt + shift - l : yabai -m window --focus east
-alt + shift - h : yabai -m window --focus west
-alt + shift - k : yabai -m window --focus north
-alt + shift - j : yabai -m window --focus south
+alt - l : yabai -m window --focus east
+alt - h : yabai -m window --focus west
+alt - k : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus north || yabai -m window --focus first; fi
+alt - j : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus south || yabai -m window --focus last; fi
 
 # Swap
 alt + shift + ctrl - l : yabai -m window --swap east
@@ -66,5 +66,9 @@ alt + shift + ctrl - 6 : yabai -m window --space 6
 
 shift + cmd - k : yabai -m space --destroy
 
-# ctrl - right : yabai -m space --focus next
-# ctrl - left : yabai -m space --focus prev
+# ctrl - right : yabai -m space --move next
+# ctrl - left : yabai -m space --move prev
+
+# Change space layout
+ctrl - 0x2B : yabai -m space --layout stack
+ctrl - 0x2C : yabai -m space --layout bsp
