@@ -7,3 +7,4 @@ yabai --start-service
 # open -a /Applications/MonitorControl.app
 #open -a /Applications/TinkerTool.app
 # open -a /Applications/Übersicht.app
+open -a /Users/diego/Documents/Yabai\ Spaces\ Indicator/Yabai\ Spaces\ Indicator.app

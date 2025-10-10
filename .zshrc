@@ -21,6 +21,7 @@ export LANG=en_US.UTF-8
 unsetopt PROMPT_SP
 
 # ZSH-VI-MODE configs
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 function zvm_before_init() {
   zvm_bindkey viins '^[[A' history-beginning-search-backward
   zvm_bindkey viins '^[[B' history-beginning-search-forward
@@ -29,6 +30,8 @@ function zvm_before_init() {
 }
 
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
+
 export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type file --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -52,6 +55,13 @@ alias git="hub"
 alias gwa="git worktree add"
 
 alias ssh="TERM=xterm-color ssh"
+
+export UID=$(id -u)
+export GID=$(id -g)
+
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias findernew='osascript -e '\''tell application "Finder" to make new Finder window to home'\'''
+
 
 # Laravel stuff
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
@@ -84,7 +94,7 @@ function checkDarkMode() {
 if [[ $TERM == 'xterm-kitty' ]]; then
     if [[ $OSTYPE == 'darwin24.0' ]]; then
         checkDarkMode
-        neofetch|lolcat -t --force
+        # neofetch|lolcat -t --force
     else
     	kitty @ set-colors --all --configured ~/Developer/forks/github-nvim-theme/terminal/kitty/github_dark.conf
     fi
@@ -138,9 +148,23 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global interactive.diffFilter "diff-so-fancy --patch"
 
 # asdf (version manager)
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # asdf end
 
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/diego/.cache/lm-studio/bin"
+
+#
+# API KEYS
+#
+
+# Infra
+# AI
+# Web search

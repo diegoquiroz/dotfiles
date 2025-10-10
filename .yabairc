@@ -4,9 +4,34 @@ sudo yabai --load-sa
 # yabai layout settings
 yabai -m config layout bsp
 
+
+# Spaces name
+yabai -m space 1 --label code
+yabai -m space 2 --label browse
+yabai -m space 3 --label comm
+yabai -m space 4 --label org
+yabai -m space 5 --label music
+
 # rules
-yabai -m rule --add app=".*" sub-layer=normal
-yabai -m rule --add app!="^(Notion|Safari|Safari Technology Preview|Microsoft Edge|Google Chrome|kitty|Warp|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|Cursor|zoom.us|Code|DataGrip)$" manage=off
+# yabai -m rule --add app=".*" sub-layer=normal
+# yabai -m rule --add app!="^(Finder|Notion|Safari|Safari Technology Preview|Microsoft Edge|Google Chrome|kitty|Warp|Onivim 2|Emacs|Preview|Pages|Excel|Word|Dash|Code|Cursor|zoom.us|Code|DataGrip|Figma|Zen|Zed|Windsurf)$" manage=off
+
+# Code space
+yabai -m rule --add app="^kitty$" space=^1
+yabai -m rule --add app="^Cursor$" space=^1
+yabai -m rule --add app="^DataGrip$" space=^1
+# Browse space
+yabai -m rule --add app="^Google Chrome$" space=^2
+# Comm space
+yabai -m rule --add app="^Slack$" space=^3
+yabai -m rule --add app="^WhatsApp$" space=^3
+yabai -m rule --add app="^Zoom Workplace$" space=^5
+# org space
+yabai -m rule --add app="^Notion Calendar$" space=^4
+# Music space
+yabai -m rule --add app="^Spotify$" space=^5
+
+
 # yabai -m window --toggle border
 # yabai -m config window_border on
 # yabai -m config window_border_width 2
@@ -30,12 +55,13 @@ yabai -m config window_gap 8
 
 yabai -m config window_shadow float
 
-yabai -m config window_opacity on
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.95
+# yabai -m config window_opacity on
+# yabai -m config active_window_opacity 1.0
+# yabai -m config normal_window_opacity 0.95
 
 
-yabai -m config mouse_follows_focus on
+# yabai -m config mouse_follows_focus on
+# yabai -m config focus_follows_mouse autoraise
 
 # JankyBorders
 borders active_color=0xfffabd2f width=8.0 &

@@ -2,7 +2,18 @@
 f8 : sh ~/Developer/scripts/laptopmode
 f9 : sh ~/Developer/scripts/desktopmode
 
-# ctrl - return : open -a kitty
+hyper - return : kitty --directory $HOME
+hyper - n : kitty --directory $HOME/Developer zsh -i -c nvim
+hyper - b : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --new-window
+hyper - f : osascript -e 'tell application "Finder" to make new Finder window to home'
+hyper - t : kitty zsh -i -c btop
+hyper - m : open -na Spotify
+hyper - w : open -a WhatsApp
+hyper - d : open -a DataGrip
+hyper - c : open -a "Notion Calendar"
+
+# f12 : open -a kitty
+# hyper - b : open -na "Google Chrome" --args --new-window
 
 # Yabai shortcuts
 # MOD1 = alt + shift
@@ -15,11 +26,11 @@ f9 : sh ~/Developer/scripts/desktopmode
 # Windows
 ####################
 
-#Focus
-alt - l : yabai -m window --focus east
-alt - h : yabai -m window --focus west
-alt - k : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus north || yabai -m window --focus first; fi
-alt - j : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus south || yabai -m window --focus last; fi
+# Focus
+hyper - l : yabai -m window --focus east
+hyper - h : yabai -m window --focus west
+hyper - k : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus north || yabai -m window --focus first; fi
+hyper - j : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus south || yabai -m window --focus last; fi
 
 # Swap
 alt + shift + ctrl - l : yabai -m window --swap east
@@ -49,12 +60,12 @@ cmd + ctrl - h : yabai -m window --display recent; yabai -m display --focus prev
 cmd + ctrl - l : yabai -m window --display recent; yabai -m display --focus next
 
 # Move window to space
-alt + shift + ctrl - 1 : yabai -m window --space 1
-alt + shift + ctrl - 2 : yabai -m window --space 2
-alt + shift + ctrl - 3 : yabai -m window --space 3
-alt + shift + ctrl - 4 : yabai -m window --space 4
-alt + shift + ctrl - 5 : yabai -m window --space 5
-alt + shift + ctrl - 6 : yabai -m window --space 6
+# alt + shift + ctrl - 1 : yabai -m window --space 1
+cmd + shift - 7 : yabai -m window --space code
+cmd + shift - 8 : yabai -m window --space browse
+cmd + shift - 9 : yabai -m window --space comm
+cmd + shift - 0 : yabai -m window --space org
+cmd + shift - 0x1B : yabai -m window --space music
 
 
 # Spaces
@@ -66,8 +77,16 @@ alt + shift + ctrl - 6 : yabai -m window --space 6
 
 shift + cmd - k : yabai -m space --destroy
 
+hyper - 7 : yabai -m space --focus code
+hyper - 8 : yabai -m space --focus browse
+hyper - 9 : yabai -m space --focus comm
+hyper - 0 : yabai -m space --focus org
+hyper - 0x1B : yabai -m space --focus music
+
 # ctrl - right : yabai -m space --move next
 # ctrl - left : yabai -m space --move prev
+ctrl - right : echo ""
+ctrl - left : echo ""
 
 # Change space layout
 ctrl - 0x2B : yabai -m space --layout stack

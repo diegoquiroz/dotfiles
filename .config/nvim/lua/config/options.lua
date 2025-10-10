@@ -15,3 +15,8 @@ vim.filetype.add({
 
 -- LSP Server to use for Python.
 --vim.g.lazyvim_python_lsp = "basedpyright"
+
+vim.opt.laststatus = 3
+
+require("config.formatters")
+vim.g.editorconfig = true
