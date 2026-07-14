@@ -20,3 +20,5 @@ vim.opt.laststatus = 3
 
 require("config.formatters")
 vim.g.editorconfig = true
+
+vim.opt.colorcolumn = "80"

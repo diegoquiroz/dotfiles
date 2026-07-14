@@ -3,11 +3,14 @@
 #
 # => Window management & shortcuts
 #
-brew install --cask hammerspoon
+brew install --cask hammerspoon hyperkey
 brew install koekeishiya/formulae/skhd
 brew install FelixKratz/formulae/borders
-brew install diegoquiroz/formulae/dyabai --head
+
+# Yabai
+brew install diegoquiroz/formulae/dyabai --HEAD
 codesign -fs 'yabai-cert' $(brew --prefix yabai)/bin/yabai
+sudo nvram boot-args=-arm64e_preview_abi
 
 echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
 
@@ -20,9 +23,10 @@ brew install font-jetbrains-mono font-fira-code-nerd-font
 #
 # => Languages
 #
-brew install go \
-  asdf \
-  julia luarocks
+brew install mise
+mise install
+
+brew install lua luarocks
 
 #
 # => Developer tools
