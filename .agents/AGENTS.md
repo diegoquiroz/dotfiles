@@ -52,3 +52,9 @@ Help contributors (human or agent) make correct, minimal, high-leverage changes.
 ## Verification
 
 Don't run any verification but linting and formatting. Build only adds friction.
+
+## Output rules
+
+- Be concise.
+- Be technical.
+- Avoid buzzwords that can be easily explained in other ways.

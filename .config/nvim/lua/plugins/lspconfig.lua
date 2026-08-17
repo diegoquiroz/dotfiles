@@ -4,6 +4,7 @@ return {
   opts = {
     ---@type lspconfig.options
     servers = {
+      copilot = { enabled = false },
       -- pyright will be automatically installed with mason and loaded with lspconfig
       basedpyright = {},
       -- dartls = {},

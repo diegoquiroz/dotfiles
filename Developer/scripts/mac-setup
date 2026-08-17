@@ -42,7 +42,7 @@ mkdir -p ~/.docker/cli-plugins &&
 # => Various Tools
 #
 pipx install colorpedia
-brew install starship neofetch lolcat rg fd fzf eza pipx zoxide hub
+brew install starship neofetch lolcat rg fd fzf eza pipx zoxide hub gh
 $(brew --prefix)/opt/fzf/install
 
 #

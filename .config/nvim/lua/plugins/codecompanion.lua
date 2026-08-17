@@ -1,0 +1,41 @@
+return {
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   opts = {
+  --     adapters = {
+  --       http = {
+  --         cliproxyapi = function()
+  --           return require("codecompanion.adapters").extend("openai_compatible", {
+  --             env = {
+  --               url = "http://127.0.0.1:8317/v1",
+  --               chat_url = "/chat/completions",
+  --               models_endpoint = "/models",
+  --               api_key = [=[cmd:sed -n 's/^[[:space:]]*-[[:space:]]*"\([^"]*\)"[[:space:]]*$/\1/p' /opt/homebrew/etc/cliproxyapi.conf | head -n 1]=],
+  --             },
+  --             schema = {
+  --               model = {
+  --                 default = "gpt-5.6-terra",
+  --               },
+  --             },
+  --           })
+  --         end,
+  --       },
+  --     },
+  --     interactions = {
+  --       chat = {
+  --         adapter = "cliproxyapi",
+  --       },
+  --       inline = {
+  --         adapter = "cliproxyapi",
+  --       },
+  --       cmd = {
+  --         adapter = "cliproxyapi",
+  --       },
+  --     },
+  --   },
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  -- },
+}

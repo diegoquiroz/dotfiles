@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+#
+# => Languages
+#
+sudo dnf install -y mise lua luarocks
+mise install
+
+#
+# => Developer tools
+#
+sudo dnf install -y neovim lazygit
+
+# Docker
+# sudo dnf install -y moby-engine docker-buildx docker-compose
+# sudo systemctl enable --now docker
+# sudo usermod -aG docker "$USER"
+
+#
+# => Various tools
+#
+sudo dnf install -y starship fastfetch lolcat ripgrep fd-find fzf eza pipx zoxide gh
+
+# echo "Docker group membership was added for $USER; log out and back in before using Docker without sudo."

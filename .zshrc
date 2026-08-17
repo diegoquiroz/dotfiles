@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos docker-compose zsh-vi-mode zsh-diff-so-fancy)
+plugins=(git macos docker-compose zsh-vi-mode)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -38,6 +38,12 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # My stuff
 
+alias IS_DEMO=1
+alias claudex='IS_DEMO=1 CLAUDE_CODE_SUBAGENT_MODEL=gpt-5.6-sol CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1 CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY=3 ENABLE_TOOL_SEARCH=false claude --model gpt-5.6-sol --dangerously-skip-permissions'
+
+alias codex="codex --yolo"
+
+alias ip="echo $(curl -s https://api.ipify.org)"
 alias web=~/Developer/shell/web
 alias counter=~/Developer/shell/counter
 alias sp=spotify
@@ -46,11 +52,9 @@ alias preview="qlmanage -p"
 alias cnvim="cd $HOME/.config/nvim && kitty @ set-tab-title --match title: Nvim config && nvim init.lua"
 alias laptopmode="yabai --stop-service"
 alias desktopmode="yabai --start-service"
-alias l="eza --all --long --header --git --icons"
+alias l="eza --all --long --header --git --icons always"
 alias tree="eza --git --icons -T --git-ignore"
 alias k="kubectl"
-alias pn="pnpm"
-
 alias git="hub"
 alias gwa="git worktree add"
 
@@ -71,11 +75,12 @@ export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export VISUAL=$EDITOR
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin
+export PATH=$PATH:$GOPATH/bin:$HOME/.local/bin
 export DOCKER_BUILDKIT=1
+export BUILDX_BUILDER=buildkit-0311
 
 # Dotfiles git alias
-alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
 
@@ -92,7 +97,7 @@ function checkDarkMode() {
 }
 
 if [[ $TERM == 'xterm-kitty' ]]; then
-    if [[ $OSTYPE == 'darwin24.0' ]]; then
+    if [[ $OSTYPE == 'darwin25.0' ]]; then
         checkDarkMode
         # neofetch|lolcat -t --force
     else
@@ -126,26 +131,18 @@ unset __conda_setup
 # Created by `pipx` on 2022-07-03 22:48:01
 export PATH="$PATH:/Users/diego/.local/bin"
 
-# pnpm
-export PNPM_HOME="/Users/diego/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # libpq (postgres) stuff
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 
-#
-# Diff so fancy
-#
-# Configure git to use d-s-f for *all* diff operations
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-# Configure git to use d-s-f for `git add --patch`
-git config --global interactive.diffFilter "diff-so-fancy --patch"
+# #
+# # Diff so fancy
+# #
+# # Configure git to use d-s-f for *all* diff operations
+# git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+# # Configure git to use d-s-f for `git add --patch`
+# git config --global interactive.diffFilter "diff-so-fancy --patch"
 
 # asdf (version manager)
 # . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -161,10 +158,36 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/diego/.cache/lm-studio/bin"
 
-#
-# API KEYS
-#
 
-# Infra
-# AI
-# Web search
+
+# Added by Windsurf
+export PATH="/Users/diego/.codeium/windsurf/bin:$PATH"
+
+eval "$(mise activate zsh)"
+
+# OpenClaw Completion
+# source <(openclaw completion --shell zsh)
+
+
+export OPENCODE_EXPERIMENTAL=1
+export OPENCODE_ENABLE_PARALLEL=1
+# export EXA_API_KEY="838a582f-1b53-47c6-a8be-45d87e9d31d1"
+
+# Added by Antigravity
+export PATH="/Users/diego/.antigravity/antigravity/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+
+export POLO_RETOOL_API_TOKEN="lpAvWEijC7v6Idy5YATHiyQEemrBdqAxhzHKpoJjE0udtVXkwJvZ6pT8cawYEXzhSnB6olm92cQJkX9hvsMgi5ttDLX4Dp4gbj0Lz1ebaeNhJQfpUExez1vn2WcsWEc2"
+
+
+alias polo-worktree-init="cp ~/Developer/polo/backoffice/.env .env && npm i"
+
+export PATH="/Users/diego/.bun/bin:$PATH"
+
+# Pi
+export PATH="/Users/diego/.local/share/mise/installs/node/24.13.1/bin:$PATH"
+
+# Pi
+export PATH="/Users/diego/.local/share/mise/installs/node/22.23.0/bin:$PATH"
+

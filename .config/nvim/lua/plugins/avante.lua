@@ -1,0 +1,58 @@
+return {
+  -- {
+  --   "yetone/avante.nvim",
+  --   build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+  --     or "make BUILD_FROM_SOURCE=false",
+  --   event = "VeryLazy",
+  --   version = false,
+  --   ---@module "avante"
+  --   ---@type avante.Config
+  --   opts = {
+  --     mode = "agentic",
+  --     provider = "cliproxyapi",
+  --     providers = {
+  --       cliproxyapi = {
+  --         __inherited_from = "openai",
+  --         endpoint = "http://127.0.0.1:8317/v1",
+  --         api_key_name = [=[cmd:sed -n 's/^[[:space:]]*-[[:space:]]*"\([^"]*\)"[[:space:]]*$/\1/p' /opt/homebrew/etc/cliproxyapi.conf | head -n 1]=],
+  --         model = "gpt-5.6-sol",
+  --         timeout = 120000,
+  --       },
+  --     },
+  --     acp_providers = {
+  --       opencode = {
+  --         command = "opencode",
+  --         args = { "acp", "--model openai/gpt-5.6-sol" },
+  --       },
+  --     },
+  --     input = {
+  --       provider = "snacks",
+  --     },
+  --     selector = {
+  --       provider = "fzf_lua",
+  --     },
+  --     behaviour = {
+  --       auto_suggestions = false,
+  --     },
+  --     windows = {
+  --       ask = {
+  --         start_insert = false,
+  --       },
+  --     },
+  --   },
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --     "folke/snacks.nvim",
+  --     "ibhagwan/fzf-lua",
+  --     "nvim-tree/nvim-web-devicons",
+  --     {
+  --       "MeanderingProgrammer/render-markdown.nvim",
+  --       opts = {
+  --         file_types = { "markdown", "Avante" },
+  --       },
+  --       ft = { "markdown", "Avante" },
+  --     },
+  --   },
+  -- },
+}

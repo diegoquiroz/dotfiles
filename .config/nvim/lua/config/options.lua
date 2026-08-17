@@ -22,3 +22,5 @@ require("config.formatters")
 vim.g.editorconfig = true
 
 vim.opt.colorcolumn = "80"
+
+vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }

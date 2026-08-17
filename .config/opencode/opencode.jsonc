@@ -27,28 +27,26 @@
   //   "@prevalentware/opencode-goal-plugin",
   // ],
   "mcp": {
-    "servers": {
-      "github_grep": {
-        "type": "remote",
-        "disabled": false,
-        "url": "https://mcp.grep.app",
-      },
-      "chrome-devtools": {
-        "type": "local",
-        "disabled": false,
-        "command": [
-          "mise",
-          "exec",
-          "--",
-          "npx",
-          "-y",
-          "chrome-devtools-mcp@latest",
-          "--no-usage-statistics",
-          "--isolated",
-        ],
-        "environment": {
-          "CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS": "1",
-        },
+    "github_grep": {
+      "type": "remote",
+      "enabled": false,
+      "url": "https://mcp.grep.app",
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics",
+        "--isolated",
+      ],
+      "environment": {
+        "CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS": "1",
       },
     },
   },
