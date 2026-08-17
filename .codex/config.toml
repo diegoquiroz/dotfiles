@@ -1,0 +1,160 @@
+notify = ["/Users/diego/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+service_tier = "default"
+personality = "pragmatic"
+
+[projects."/Users/diego"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Developer/polo/backoffice"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Developer/forks/open-design"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Developer/gluu/gluu"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Developer/diegoquiroz/quipu-new"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Developer/polo"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Documents/Codex/2026-06-21/i"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Documents/Codex/2026-06-21/presentations-plugin-presentations-openai-primary-runtime"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Library/Application Support/com.conductor.app/bin"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Documents/Codex/2026-07-13/v"]
+trust_level = "trusted"
+
+[projects."/Users/diego/Documents/Codex/2026-07-13/m"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 1
+
+[marketplaces.openai-bundled]
+last_updated = "2026-07-11T17:54:19Z"
+source_type = "local"
+source = "/Users/diego/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-07-11T18:17:09Z"
+source_type = "local"
+source = "/Users/diego/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[mcp_servers.github_grep]
+url = "https://mcp.grep.app"
+enabled = false
+
+[mcp_servers.chrome-devtools]
+command = "mise"
+args = [
+  "exec",
+  "--",
+  "npx",
+  "-y",
+  "chrome-devtools-mcp@latest",
+  "--no-usage-statistics",
+]
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/diego/.codex"
+CODEX_HOME = "/Users/diego/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f,c8b7e809d7cf9e20a57123b2530d476ccec9a01a6230a7b2b924fea7d94d7f4a"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.707.31428"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[desktop]
+ambient-suggestions-enabled = true
+conversationDetailMode = "STEPS_PROSE"
+show-context-window-usage = true
+followUpQueueMode = "queue"
+dock-icon-preference = "codex-system"
+
+[features]
+hooks = true
+js_repl = false
+
+[[skills.config]]
+path = "/Users/diego/Developer/polo/.agents/skills/chartjs/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/diego/Developer/polo/.agents/skills/layerchart/SKILL.md"
+enabled = false
+
+[[skills.config]]
+name = "spreadsheets:Spreadsheets"
+enabled = false
+
+[[skills.config]]
+name = "presentations:Presentations"
+enabled = false
+
+[[skills.config]]
+name = "pdf:pdf"
+enabled = false
+
+[[skills.config]]
+name = "documents:documents"
+enabled = false
+
+[hooks.state]
+
+[hooks.state."/Users/diego/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:8d9b1ddbbd94fb55d9bb171cebd1382e8246911f08a8514ec4b4f28a4281070d"

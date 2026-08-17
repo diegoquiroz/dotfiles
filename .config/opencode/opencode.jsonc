@@ -1,0 +1,166 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openai/gpt-5.6-sol",
+  // "instructions": ["~/.agents/AGENTS.md"],
+  // "enabled_providers": ["openai", "opencode-go", "cursor-acp"],
+  // "agents": {
+  //   // "build": {
+  //   //   "mode": "primary",
+  //   //   "system": "{file:./prompts/build.txt}",
+  //   //   "request": { "body": {} },
+  //   //   "permissions": []
+  //   // },
+  //   // "code-reviewer": {
+  //   //   "description": "Reviews code for best practices, avoid over-engineering and potential issues",
+  //   //   "mode": "subagent",
+  //   //   "model": "openai/gpt-5.5",
+  //   //   "system": "You are a code reviewer. Focus on good, scalable and simple patterns. Optimize for maintainability and configurable solutions. You dislike patches and backwards compatibility, always demand root-cause fixes even if it involves large refactoring.",
+  //   //   "permissions": [
+  //   //     { "action": "edit", "resource": "*", "effect": "allow" },
+  //   //   ],
+  //   // },
+  // },
+  // "plugins": [
+  //   // "opencode-supermemory@latest",
+  //   // "cursor-acp",
+  //   "@rama_nigg/open-cursor@latest",
+  //   "@prevalentware/opencode-goal-plugin",
+  // ],
+  "mcp": {
+    "servers": {
+      "github_grep": {
+        "type": "remote",
+        "disabled": false,
+        "url": "https://mcp.grep.app",
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "disabled": false,
+        "command": [
+          "mise",
+          "exec",
+          "--",
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--no-usage-statistics",
+          "--isolated",
+        ],
+        "environment": {
+          "CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS": "1",
+        },
+      },
+    },
+  },
+  // "providers": {
+  //   "cursor-acp": {
+  //     "name": "Cursor",
+  //     "package": "aisdk:@ai-sdk/openai-compatible",
+  //     "settings": {
+  //       "baseURL": "http://127.0.0.1:32124/v1",
+  //     },
+  //     "models": {
+  //       "claude-opus-4-8": {
+  //         "name": "Claude Opus 4 8",
+  //         "settings": {
+  //           "cursorModel": "claude-opus-4-8-medium",
+  //         },
+  //         "variants": [
+  //           {
+  //             "id": "thinking-low",
+  //             "settings": { "cursorModel": "claude-opus-4-8-thinking-low" },
+  //           },
+  //           {
+  //             "id": "thinking-medium",
+  //             "settings": { "cursorModel": "claude-opus-4-8-thinking-medium" },
+  //           },
+  //           {
+  //             "id": "thinking-high",
+  //             "settings": { "cursorModel": "claude-opus-4-8-thinking-high" },
+  //           },
+  //           {
+  //             "id": "thinking-xhigh",
+  //             "settings": { "cursorModel": "claude-opus-4-8-thinking-xhigh" },
+  //           },
+  //           {
+  //             "id": "thinking-max",
+  //             "settings": { "cursorModel": "claude-opus-4-8-thinking-max" },
+  //           },
+  //           {
+  //             "id": "thinking-low-fast",
+  //             "settings": {
+  //               "cursorModel": "claude-opus-4-8-thinking-low-fast",
+  //             },
+  //           },
+  //           {
+  //             "id": "thinking-max-fast",
+  //             "settings": {
+  //               "cursorModel": "claude-opus-4-8-thinking-max-fast",
+  //             },
+  //           },
+  //           {
+  //             "id": "thinking-medium-fast",
+  //             "settings": {
+  //               "cursorModel": "claude-opus-4-8-thinking-medium-fast",
+  //             },
+  //           },
+  //           {
+  //             "id": "thinking-xhigh-fast",
+  //             "settings": {
+  //               "cursorModel": "claude-opus-4-8-thinking-xhigh-fast",
+  //             },
+  //           },
+  //         ],
+  //       },
+  //       "claude-fable-5": {
+  //         "name": "Claude Fable 5",
+  //         "settings": {
+  //           "cursorModel": "claude-fable-5-medium",
+  //         },
+  //         "variants": [
+  //           {
+  //             "id": "low",
+  //             "settings": { "cursorModel": "claude-fable-5-low" },
+  //           },
+  //           {
+  //             "id": "medium",
+  //             "settings": { "cursorModel": "claude-fable-5-medium" },
+  //           },
+  //           {
+  //             "id": "high",
+  //             "settings": { "cursorModel": "claude-fable-5-high" },
+  //           },
+  //           {
+  //             "id": "xhigh",
+  //             "settings": { "cursorModel": "claude-fable-5-xhigh" },
+  //           },
+  //           {
+  //             "id": "max",
+  //             "settings": { "cursorModel": "claude-fable-5-max" },
+  //           },
+  //           {
+  //             "id": "thinking-low",
+  //             "settings": { "cursorModel": "claude-fable-5-thinking-low" },
+  //           },
+  //           {
+  //             "id": "thinking-medium",
+  //             "settings": { "cursorModel": "claude-fable-5-thinking-medium" },
+  //           },
+  //           {
+  //             "id": "thinking-high",
+  //             "settings": { "cursorModel": "claude-fable-5-thinking-high" },
+  //           },
+  //           {
+  //             "id": "thinking-xhigh",
+  //             "settings": { "cursorModel": "claude-fable-5-thinking-xhigh" },
+  //           },
+  //           {
+  //             "id": "thinking-max",
+  //             "settings": { "cursorModel": "claude-fable-5-thinking-max" },
+  //           },
+  //         ],
+  //       },
+  //     },
+  //   },
+  // },
+}

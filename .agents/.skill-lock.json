@@ -1,0 +1,61 @@
+{
+  "version": 3,
+  "skills": {
+    "ralph-tui-prd": {
+      "source": "subsy/ralph-tui",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/subsy/ralph-tui.git",
+      "skillPath": "skills/ralph-tui-prd/SKILL.md",
+      "skillFolderHash": "bf73ca88685816787c9822388db5b6519dd0848e",
+      "installedAt": "2026-01-25T20:13:55.046Z",
+      "updatedAt": "2026-01-25T20:13:55.046Z"
+    },
+    "ralph-tui-create-json": {
+      "source": "subsy/ralph-tui",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/subsy/ralph-tui.git",
+      "skillPath": "skills/ralph-tui-create-json/SKILL.md",
+      "skillFolderHash": "8773e8874e3eaa4d59e2cd871999d7d426fc2ec3",
+      "installedAt": "2026-01-25T20:14:02.467Z",
+      "updatedAt": "2026-06-23T23:48:28.954Z"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "skillFolderHash": "8320e7b87f7b208f50ce165b1dd43d1e93c8e801",
+      "installedAt": "2026-05-24T16:48:49.177Z",
+      "updatedAt": "2026-06-23T23:48:30.310Z"
+    },
+    "terminal-control": {
+      "source": "kitlangton/terminal-control",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kitlangton/terminal-control.git",
+      "skillPath": "skills/terminal-control/SKILL.md",
+      "skillFolderHash": "a1cd114e830ac8bbd2a557f55395ec06d80cd5e2",
+      "installedAt": "2026-06-23T23:47:51.863Z",
+      "updatedAt": "2026-06-23T23:47:51.863Z"
+    }
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed",
+    "claude-code",
+    "pi"
+  ],
+  "dismissed": {
+    "findSkillsPrompt": true
+  }
+}

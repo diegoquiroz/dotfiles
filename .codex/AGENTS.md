@@ -1,0 +1,1 @@
+/Users/diego/.agents/AGENTS.md

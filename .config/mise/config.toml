@@ -1,0 +1,9 @@
+[tools]
+node = "22"
+"npm:ralph-tui" = "latest"
+python = "3.13"
+ruby = "3.4"
+rust = "latest"
+
+[settings]
+env_file = ".env"
