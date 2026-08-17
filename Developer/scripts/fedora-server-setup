@@ -7,11 +7,14 @@ set -euo pipefail
 #
 sudo dnf install -y mise lua luarocks
 mise install
+mise use -g go@latest
 
 #
 # => Developer tools
 #
-sudo dnf install -y neovim lazygit
+-sudo dnf install -y neovim lazygit
++go install github.com/jesseduffield/lazygit@latest
++sudo dnf install -y neovim
 
 # Docker
 # sudo dnf install -y moby-engine docker-buildx docker-compose
